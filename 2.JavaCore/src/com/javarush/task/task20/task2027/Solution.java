@@ -4,13 +4,6 @@ import java.util.List;
 
 /* 
 Кроссворд
-Дан двумерный массив, который содержит буквы английского алфавита в нижнем регистре.
-2. Метод detectAllWords должен найти все слова из words в массиве crossword.
-3. Элемент(startX, startY) должен соответствовать первой букве слова, элемент(endX, endY) — последней.
-text — это само слово, располагается между начальным и конечным элементами
-4. Все слова есть в массиве.
-5. Слова могут быть расположены горизонтально, вертикально и по диагонали как в нормальном, так и в обратном порядке.
-6. Метод main не участвует в тестировании.
 */
 public class Solution {
     public static void main(String[] args) {
@@ -30,14 +23,6 @@ same - (1, 1) - (4, 1)
     }
 
     public static List<Word> detectAllWords(int[][] crossword, String... words) {
-        Word word = new Word(words.toString());
-        char charStart = word.text.charAt(0);
-        char charFinish = words.toString().charAt(words.length-1);
-        for (int i = 0; i < crossword.length; i++) {
-            for (int j = 0; j < crossword[i].length; j++) {
-//                if (charStart == crossword[i][j] &&  charFinish == crossword[i][j + (word.text.length()-1)])
-            }
-        }
 
         return null;
     }

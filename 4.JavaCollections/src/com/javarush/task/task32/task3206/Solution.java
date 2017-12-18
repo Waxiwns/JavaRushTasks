@@ -6,6 +6,16 @@ import java.lang.reflect.Proxy;
 Дженерики для создания прокси-объекта
 */
 public class Solution {
+    public <T extends Item> T getProxy(Class<? extends Item> tClass, Class<?>... classes){
+        ClassLoader classLoader = tClass.getClassLoader(); //tClass.getClassLoader();
+        Class[] interfaces = new Class[classes.length + 1];
+        ItemInvocationHandler itemInvocationHandler = new ItemInvocationHandler();
+        System.arraycopy(classes, 0, interfaces, 0, classes.length);
+        interfaces[interfaces.length-1] = tClass;
+
+        return (T) Proxy.newProxyInstance(classLoader, interfaces, itemInvocationHandler);
+
+    }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -16,9 +26,6 @@ public class Solution {
         test(solution.getProxy(Big.class));                         //true true false т.к. Big наследуется от Item
     }
 
-    public <T extends Item> T getProxy(Class<T> clas, Class... classes){
-        return null;
-    }
 
     private static void test(Object proxy) {
         boolean isItem = proxy instanceof Item;

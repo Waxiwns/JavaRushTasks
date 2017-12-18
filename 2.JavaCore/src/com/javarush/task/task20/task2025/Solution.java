@@ -1,137 +1,106 @@
 package com.javarush.task.task20.task2025;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.TreeSet;
 
 /*
 Алгоритмы-числа
-Число S состоит из M цифр, например, S=370 и M (количество цифр) = 3
-Реализовать логику метода getNumbers, который должен среди натуральных чисел меньше N (long)
-находить все числа, удовлетворяющие следующему критерию:
-число S равно сумме его цифр, возведенных в M степень
-getNumbers должен возвращать все такие числа в порядке возрастания.
-
-Пример искомого числа:
-370 = 3*3*3 + 7*7*7 + 0*0*0
-8208 = 8*8*8*8 + 2*2*2*2 + 0*0*0*0 + 8*8*8*8
-
-На выполнение дается 10 секунд и 50 МБ памяти.
 */
 public class Solution {
-    //Опредиление количества цифр в числе
-    public static byte countAmstNum(long N){
-        byte i = 0;
-        if (N > 0){
-            while (N !=0){
-                N = N/10;
-                i++;
-            }
-        }
-
-
-        return i;
-    }
-    //Является ли число числом Армстронга
-    public static boolean isArm(long N){
-        int drob = 0;
-        long result = 0;
-        long orig = N;
-        byte count = countAmstNum(N);
-        while (N != 0){
-            drob = (int) (N % 10);
-            result=result+((long) Math.pow(drob, count));
-            N=N/10;
-        }
-        if (orig == result)
-            return true;
-        return false;
-    }
-
-
-
     public static long[] getNumbers(long N) {
-      // 1й вариант долгий
-        long[] res = null;
+        long[] result = null;
+        TreeSet<Long> numbers = new TreeSet<>();
 
-        List<Long> list = new ArrayList<>();
+        //Массив степеней
+        final int SIZE = 12;
+        long[][] powLst = new long[SIZE][SIZE];
 
-        for (long k = 0; k < N; k++) {
-            long s = k;
+        //Здесь лежит нарезка цифр
+        int[] lst = new int[20];
 
-            String stringS = Long.toString(s);
-            String[] mas = stringS.split("");
-            long result = 0;
-            long result1 = 0; // цифра числа
 
-            for (int i = 0; i < mas.length; i++) {
-                result1 = Integer.parseInt(mas[i]);
-                for (int j = 1; j < mas.length; j++) {      //возводим
-                    result1 *= Integer.parseInt(mas[i]);    //в степень (кол-ва цифр в числе)
-                }
-                if (result1 > k)
-                    break;
-                else
-                result += result1;                          //сумма чисел цифры в степени
-            }
-            // если цафра равна сумме чисел в степени то добавить в список
-            if (result == k){
-                list.add(result);
-            }
-
-        }
-
-        res = new long[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-        return res;
-
-/*
-       // 2й вариант
-
-        long[] res = null;
-        List<Long> list = new ArrayList<>();
+        label:
         for (long i = 1; i < N; i++) {
-            if (isArm(i)) {
-                list.add(i);
+            // 1.Отбраковываем числа у которых сумма цифр одинаковая (сокращаем до 200 000 тыс варинтов и менее)
+            // 2.Получаем нарезку цифр в виде массива
+            long x = i;
+            int lenCount = 0;
+            int current;
+            int last = Integer.MAX_VALUE;
+            while (x != 0) {
+                current = (int) (x % 10);
+                if ((current != 0 && last != 0) && last < current)
+                    continue label;
+                last = current;
+                lst[lenCount] = current;
+                x = x / 10;
+                lenCount++;
             }
+
+            //3. Считаем степень, и заполняем таблицу степеней
+            //Находим сумму степеней цифр числа, например сюда поступило 037 с пункта 2
+            long summa1 = 0;
+            for (int j = 0; j < lenCount; j++) {
+                if (powLst[lst[j]][lenCount] == 0) { //Если в массиве степеней еще нет значения
+                    long a1 = lst[j];
+                    if (a1 != 0 && a1 != 1) {          //Если цифра 0 или 1, то смысла считать степень нет
+                        long a2 = lst[j];
+                        for (int jj = 1; jj < lenCount; jj++) //Считаем степень
+                            a1 *= a2;
+                    }
+                    powLst[lst[j]][lenCount] = a1;//Добавляем в массив степеней новое значение
+                }
+                summa1 += powLst[lst[j]][lenCount];
+            }
+            //Например, Сумма степеней получилось = 370
+
+            //4. Получаем нарезку цифр
+            long xx = summa1;
+            lenCount = 0;
+            while (xx != 0) {
+                lst[lenCount] = (int) (xx % 10);
+                lenCount++;
+                xx = xx / 10;
+            }
+
+            //5. Из полученной суммы берем сумму степеней, для проверки на  число амстронга
+            long summa2 = 0;
+            for (int j = 0; j < lenCount; j++) {
+                if (powLst[lst[j]][lenCount] == 0) { //Если в массиве степеней еще нет значения
+                    long a1 = lst[j];
+                    if (a1 != 0 && a1 != 1) {          //Если цифра 0 или 1, то смысла считать степень нет
+                        long a2 = lst[j];
+                        for (int jj = 1; jj < lenCount; jj++) //Считаем степень
+                            a1 *= a2;
+                    }
+                    powLst[lst[j]][lenCount] = a1;//Добавляем в массив степеней новое значение
+                }
+                summa2 += powLst[lst[j]][lenCount];
+            }
+
+            //6. Добавляем результат
+            if (summa1 == summa2 && summa1 < N)
+                numbers.add(summa1);
         }
-        res = new long[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
+        result = new long[numbers.size()];
+
+        int count = 0;
+        for (Long l : numbers) {
+            result[count] = l;
+            count++;
         }
-        return res;
-*/
-           }
+        return result;
+    }
 
     public static void main(String[] args) {
-//        System.out.println(isArm(372));
-//        System.out.println(countAmstNum(1000000000));
-
-//        long[] mas = getNumbers(99999);
-//        for (int i = 0; i < mas.length; i++) {
-//            System.out.println(mas[i]);
-//        }
-        long N = 999999;
-        for (long i = 0; i < N; i++) {
-if (isArm(i))
-    System.out.println(i);
-        }
-
-
-
-//        и память посмотри, так надо
-        Date startTime = new Date();
-        long timeStart = System.currentTimeMillis();
-        long[] test = getNumbers(999999);
-        long timeEnd = System.currentTimeMillis();
-        Date endTime = new Date();
-        long memStart = Runtime.getRuntime().totalMemory();
-        long memEnd = Runtime.getRuntime().freeMemory();
-        System.out.println(((timeEnd - timeStart) ) + " - "
-                + ((endTime.getTime() - startTime.getTime()) ) + " mS");
-        System.out.println((memStart - memEnd) / (1024) + " Kb");
-
+        Long t0 = System.currentTimeMillis();
+        long[] numbers = getNumbers(Integer.MAX_VALUE);
+//        long[] numbers = getNumbers(146511208);
+//        int[] numbers = getNumbers(100);
+        Long t1 = System.currentTimeMillis();
+        System.out.println("time: " + (t1 - t0) / 1000d + " sec");
+        System.out.println("memory: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024 * 1024) + " mb");
+        System.out.println(Arrays.toString(numbers));
     }
 }

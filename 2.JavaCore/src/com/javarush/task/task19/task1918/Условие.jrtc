@@ -1,25 +1,37 @@
-<div class="wdghtml" taskKey="com.javarush.task.task19.task1918">
-<h3>Знакомство с тегами</h3>
-<p>Считайте с консоли имя файла, который имеет HTML-формат.</p>
-<p><strong>Пример:</strong><br />
-<span class="text-neon">Info about Leela &lt;span xml:lang=&#187;en&#187; lang=&#187;en&#187;&gt;&lt;b&gt;&lt;span&gt;Turanga Leela</span><br />
-<span class="text-neon"> &lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;span&gt;Super&lt;/span&gt;&lt;span&gt;girl&lt;/span&gt;</span></p>
-<p>Первым параметром в метод main приходит тег. Например, &#171;<em><strong>span</strong></em>&#171;.<br />
-Вывести на консоль все теги, которые соответствуют заданному тегу.<br />
-Каждый тег на новой строке, порядок должен соответствовать порядку следования в файле.<br />
-Количество пробелов, <mark class="user">n</mark>, <mark class="user">r</mark> не влияют на результат.<br />
-Файл не содержит тег <strong>CDATA</strong>, для всех открывающих тегов имеется отдельный закрывающий тег, одиночных тегов нет.<br />
-Тег может содержать вложенные теги.</p>
-<p><strong>Пример вывода:</strong><br />
-<code>&lt;span xml:lang="en" lang="en"&gt;&lt;b&gt;&lt;span&gt;Turanga Leela&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;<br />
-&lt;span&gt;Turanga Leela&lt;/span&gt;<br />
-&lt;span&gt;Super&lt;/span&gt;<br />
-&lt;span&gt;girl&lt;/span&gt;</code></p>
-<p><strong>Шаблон тега:</strong><br />
-<code>&lt;tag&gt;text1&lt;/tag&gt;<br />
-&lt;tag text2&gt;text1&lt;/tag&gt;<br />
-&lt;tag<br />
-text2&gt;text1&lt;/tag&gt;</code></p>
-<p><strong>text1, text2</strong> могут быть пустыми</p>
+taskKey="com.javarush.task.task19.task1918"
 
-</div>
+Знакомство с тегами
+
+Считайте с консоли имя файла, который имеет HTML-формат.
+Пример:
+Info about Leela <span xml:lang="en" lang="en"><b><span>Turanga Leela
+</span></b></span><span>Super</span><span>girl</span>
+Первым параметром в метод main приходит тег. Например, "span".
+Вывести на консоль все теги, которые соответствуют заданному тегу.
+Каждый тег на новой строке, порядок должен соответствовать порядку следования в файле.
+Количество пробелов, \n, \r не влияют на результат.
+Файл не содержит тег CDATA, для всех открывающих тегов имеется отдельный закрывающий тег, одиночных тегов нет.
+Тег может содержать вложенные теги.
+Пример вывода:
+<span xml:lang="en" lang="en"><b><span>Turanga Leela</span></b></span>
+<span>Turanga Leela</span>
+<span>Super</span>
+<span>girl</span>
+
+Шаблон тега:
+<tag>text1</tag>
+<tag text2>text1</tag>
+<tag
+text2>text1</tag>
+
+text1, text2 могут быть пустыми
+
+
+Требования:
+1.	Программа должна считывать имя файла с консоли (используй BufferedReader).
+2.	BufferedReader для считывания данных с консоли должен быть закрыт.
+3.	Программа должна считывать содержимое файла (используй FileReader).
+4.	Поток чтения из файла (FileReader) должен быть закрыт.
+5.	Программа должна выводить в консоль все теги, которые соответствуют тегу, заданному в параметре метода main.
+
+

@@ -42,7 +42,6 @@ public class Solution {
     }
 
     public static class SomeValue {
-
         private SomeKey myKey;
 
         public SomeValue() {
