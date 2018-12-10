@@ -8,6 +8,7 @@ import java.util.List;
 public class MinesweeperGame extends Game {
     private static final int SIDE = 9;
     private int countClosedTiles = SIDE * SIDE;
+    private int score = 0;
     private static final String MINE = "\uD83D\uDCA3";
     private static final String FLAG = "\uD83D\uDEA9";
     private GameObject[][] gameField = new GameObject[SIDE][SIDE];
@@ -87,17 +88,22 @@ public class MinesweeperGame extends Game {
         if (!gameField[y][x].isOpen && !gameField[y][x].isFlag && !isGameStopped){
             gameField[y][x].isOpen = true;
             countClosedTiles--;
-            if (!gameField[y][x].isMine && countClosedTiles == countMinesOnField) win();
-            if (gameField[y][x].isMine){
+            if (!gameField[y][x].isMine){
+                score += 5;
+                setScore(score);
+                if (countClosedTiles == countMinesOnField) win();
+            }
+            else {
                 setCellValueEx(x, y, Color.RED, MINE);
                 gameOver();
             }
-            else if (gameField[y][x].countMineNeighbors > 0){
+
+            if (gameField[y][x].countMineNeighbors > 0){
                 setCellNumber(x, y, gameField[y][x].countMineNeighbors);
                 setCellColor(x, y, Color.GREEN);
             }
 
-            if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
+            else if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
                 setCellValue(x, y, "");
                 setCellColor(x, y, Color.GREEN);
                 List<GameObject> neighs = getNeighbors(gameField[y][x]);
