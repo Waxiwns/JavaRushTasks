@@ -83,23 +83,25 @@ public class MinesweeperGame extends Game {
     }
 
     private void openTile(int x, int y){
-        gameField[y][x].isOpen = true;
-        if (gameField[y][x].isMine){
-            setCellValueEx(x, y, Color.RED, MINE);
-            gameOver();
-        }
-        else if (gameField[y][x].countMineNeighbors > 0){
-            setCellNumber(x, y, gameField[y][x].countMineNeighbors);
-            setCellColor(x, y, Color.GREEN);
-        }
+        if (!gameField[y][x].isOpen && !gameField[y][x].isFlag && !isGameStopped){
+            gameField[y][x].isOpen = true;
+            if (gameField[y][x].isMine){
+                setCellValueEx(x, y, Color.RED, MINE);
+                gameOver();
+            }
+            else if (gameField[y][x].countMineNeighbors > 0){
+                setCellNumber(x, y, gameField[y][x].countMineNeighbors);
+                setCellColor(x, y, Color.GREEN);
+            }
 
 
-        if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
-            setCellValue(x, y, "");
-            setCellColor(x, y, Color.GREEN);
-            List<GameObject> neighs = getNeighbors(gameField[y][x]);
-            for (GameObject neigh : neighs) {
-                if (!neigh.isOpen && !neigh.isMine) openTile(neigh.x, neigh.y);
+            if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
+                setCellValue(x, y, "");
+                setCellColor(x, y, Color.GREEN);
+                List<GameObject> neighs = getNeighbors(gameField[y][x]);
+                for (GameObject neigh : neighs) {
+                    if (!neigh.isOpen && !neigh.isMine) openTile(neigh.x, neigh.y);
+                }
             }
         }
     }
@@ -125,7 +127,7 @@ public class MinesweeperGame extends Game {
     }
 
     private void gameOver(){
-        showMessageDialog(Color.DARKRED, "You are lose!!!", Color.BLANCHEDALMOND, 50);
         isGameStopped = true;
+        showMessageDialog(Color.DARKRED, "You are lose!!!", Color.BLANCHEDALMOND, 50);
     }
 }
