@@ -7,6 +7,7 @@ import java.util.List;
 
 public class MinesweeperGame extends Game {
     private static final int SIDE = 9;
+    private int countClosedTiles = SIDE * SIDE;
     private static final String MINE = "\uD83D\uDCA3";
     private static final String FLAG = "\uD83D\uDEA9";
     private GameObject[][] gameField = new GameObject[SIDE][SIDE];
@@ -85,6 +86,8 @@ public class MinesweeperGame extends Game {
     private void openTile(int x, int y){
         if (!gameField[y][x].isOpen && !gameField[y][x].isFlag && !isGameStopped){
             gameField[y][x].isOpen = true;
+            countClosedTiles--;
+            if (!gameField[y][x].isMine && countClosedTiles == countMinesOnField) win();
             if (gameField[y][x].isMine){
                 setCellValueEx(x, y, Color.RED, MINE);
                 gameOver();
@@ -93,7 +96,6 @@ public class MinesweeperGame extends Game {
                 setCellNumber(x, y, gameField[y][x].countMineNeighbors);
                 setCellColor(x, y, Color.GREEN);
             }
-
 
             if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
                 setCellValue(x, y, "");
@@ -126,8 +128,13 @@ public class MinesweeperGame extends Game {
         }
     }
 
+    private void win(){
+        isGameStopped = true;
+        showMessageDialog(Color.CADETBLUE, "You WIN! CONGRATS", Color.GOLD, 50);
+    }
+
     private void gameOver(){
         isGameStopped = true;
-        showMessageDialog(Color.DARKRED, "You are lose!!!", Color.BLANCHEDALMOND, 50);
+        showMessageDialog(Color.DARKRED, "You lose", Color.BLACK, 50);
     }
 }
