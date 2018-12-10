@@ -78,10 +78,19 @@ public class MinesweeperGame extends Game {
         if (gameField[y][x].isMine){
             setCellValue(x, y, MINE);
         }
-        else{
+        else if (gameField[y][x].countMineNeighbors > 0){
             setCellNumber(x, y, gameField[y][x].countMineNeighbors);
         }
+
         gameField[y][x].isOpen = true;
         setCellColor(x, y, Color.GREEN);
+
+        if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
+            setCellValue(x, y, "");
+            List<GameObject> neighs = getNeighbors(gameField[y][x]);
+            for (GameObject neigh : neighs) {
+                if (!neigh.isOpen && !neigh.isMine) openTile(neigh.x, neigh.y);
+            }
+        }
     }
 }
