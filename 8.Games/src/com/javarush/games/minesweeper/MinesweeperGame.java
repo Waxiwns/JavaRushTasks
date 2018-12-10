@@ -24,6 +24,11 @@ public class MinesweeperGame extends Game {
         openTile(x, y);
     }
 
+    @Override
+    public void onMouseRightClick(int x, int y) {
+        markTile(x, y);
+    }
+
     private void createGame() {
         for (int i = 0; i < gameField.length; i++) {
             for (int j = 0; j < gameField[i].length; j++) {
@@ -43,7 +48,7 @@ public class MinesweeperGame extends Game {
 
     // список соседних ячеек
     private List<GameObject> getNeighbors(GameObject obj){
-        List<GameObject> neighbors = new ArrayList<GameObject>();
+        List<GameObject> neighbors = new ArrayList<>();
         int left = (obj.x - 1 < 0) ? 0 : obj.x - 1;
         int right = (obj.x + 1 > SIDE - 1) ? SIDE - 1 : obj.x + 1;
         int up = (obj.y - 1 < 0) ? 0 : obj.y - 1;
@@ -75,21 +80,43 @@ public class MinesweeperGame extends Game {
     }
 
     private void openTile(int x, int y){
+        gameField[y][x].isOpen = true;
         if (gameField[y][x].isMine){
             setCellValue(x, y, MINE);
+            setCellColor(x, y, Color.RED);
         }
         else if (gameField[y][x].countMineNeighbors > 0){
             setCellNumber(x, y, gameField[y][x].countMineNeighbors);
+            setCellColor(x, y, Color.GREEN);
         }
 
-        gameField[y][x].isOpen = true;
-        setCellColor(x, y, Color.GREEN);
 
         if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
             setCellValue(x, y, "");
+            setCellColor(x, y, Color.GREEN);
             List<GameObject> neighs = getNeighbors(gameField[y][x]);
             for (GameObject neigh : neighs) {
                 if (!neigh.isOpen && !neigh.isMine) openTile(neigh.x, neigh.y);
+            }
+        }
+    }
+
+    private void markTile(int x, int y){
+        if (!gameField[y][x].isOpen){
+            if (!gameField[y][x].isFlag){
+                if (countFlags > 0){
+                    gameField[y][x].isFlag = true;
+                    setCellValue(x, y, FLAG);
+                    setCellColor(x, y, Color.AQUA);
+                    countFlags--;
+                }
+            }
+            else{
+                gameField[y][x].isFlag = true;
+                setCellValue(x, y, "");
+                setCellColor(x, y, Color.ORANGE);
+                gameField[y][x].isFlag = false;
+                countFlags++;
             }
         }
     }
