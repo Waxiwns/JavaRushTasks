@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MinesweeperGame extends Game {
-    private int WIDTH = 25;
-    private int HIGHT = 15;
+    private static final int WIDTH = 25;
+    private static final int HEIGHT = 15;
     private static final int COMPLEXITY = 6;
-    private int countClosedTiles = WIDTH * HIGHT;
+    private int countClosedTiles = WIDTH * HEIGHT;
     private int score = 0;
         private static final String MINE = "\uD83D\uDCA3";
     private static final String FLAG = "\uD83D\uDEA9";
-    private GameObject[][] gameField = new GameObject[HIGHT][WIDTH];
+    private GameObject[][] gameField = new GameObject[HEIGHT][WIDTH];
     private int countMinesOnField = 0;
     private int countFlags;
     private boolean isGameStopped;
 
     @Override
     public void initialize() {
-        setScreenSize(WIDTH, HIGHT);
+        setScreenSize(WIDTH, HEIGHT);
         createGame();
     }
 
@@ -59,7 +59,7 @@ public class MinesweeperGame extends Game {
         int left = (obj.x - 1 < 0) ? 0 : obj.x - 1;
         int right = (obj.x + 1 > WIDTH - 1) ? WIDTH - 1 : obj.x + 1;
         int up = (obj.y - 1 < 0) ? 0 : obj.y - 1;
-        int down = (obj.y + 1 > HIGHT - 1) ? HIGHT - 1 : obj.y + 1;
+        int down = (obj.y + 1 > HEIGHT - 1) ? HEIGHT - 1 : obj.y + 1;
         for (int i = left; i <= right; i++) {
             for (int j = up; j <= down; j++) {
                 if (i == obj.x && j == obj.y){}
@@ -178,7 +178,7 @@ public class MinesweeperGame extends Game {
 
     private void restart(){
         isGameStopped = false;
-        countClosedTiles = WIDTH * HIGHT;
+        countClosedTiles = WIDTH * HEIGHT;
         countFlags = 0;
         countMinesOnField = 0;
         score = 0;
