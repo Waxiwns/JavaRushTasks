@@ -3,8 +3,8 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.*;
 
 public class SnakeGame extends Game {
-    public static final int WIDTH = 20;
-    public static final int HEIGHT = 15;
+    private static final int WIDTH = 20;
+    private static final int HEIGHT = 15;
 
     @Override
     public void initialize() {
