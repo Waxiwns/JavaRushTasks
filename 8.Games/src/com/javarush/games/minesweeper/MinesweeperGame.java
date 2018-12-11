@@ -6,19 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MinesweeperGame extends Game {
-    private static final int SIDE = 9;
-    private int countClosedTiles = SIDE * SIDE;
+    private int WIDTH = 25;
+    private int HIGHT = 15;
+    private static final int COMPLEXITY = 6;
+    private int countClosedTiles = WIDTH * HIGHT;
     private int score = 0;
-    private static final String MINE = "\uD83D\uDCA3";
+        private static final String MINE = "\uD83D\uDCA3";
     private static final String FLAG = "\uD83D\uDEA9";
-    private GameObject[][] gameField = new GameObject[SIDE][SIDE];
+    private GameObject[][] gameField = new GameObject[HIGHT][WIDTH];
     private int countMinesOnField = 0;
     private int countFlags;
     private boolean isGameStopped;
 
     @Override
     public void initialize() {
-        setScreenSize(SIDE, SIDE);
+        setScreenSize(WIDTH, HIGHT);
         createGame();
     }
 
@@ -36,17 +38,17 @@ public class MinesweeperGame extends Game {
     private void createGame() {
         for (int i = 0; i < gameField.length; i++) {
             for (int j = 0; j < gameField[i].length; j++) {
-                setCellValue(i, j, "");
+                setCellValue(j, i, "");
                 boolean isMine = false;
-                if (getRandomNumber(SIDE + 1) == 1) {
+                if (getRandomNumber(COMPLEXITY) == 1) {
                     isMine = true;
                     countMinesOnField++;
                 }
-
-                gameField[j][i] = new GameObject(i, j, isMine);
-                setCellColor(i, j, Color.ORANGE);
+                gameField[i][j] = new GameObject(j, i, isMine);
+                setCellColor(j, i, Color.ORANGE);
             }
         }
+        System.out.println(countMinesOnField);
         countFlags = countMinesOnField;
         countMineNeighbors();   // подсчет мин вокруг каждой ячейки
     }
@@ -55,9 +57,9 @@ public class MinesweeperGame extends Game {
     private List<GameObject> getNeighbors(GameObject obj){
         List<GameObject> neighbors = new ArrayList<>();
         int left = (obj.x - 1 < 0) ? 0 : obj.x - 1;
-        int right = (obj.x + 1 > SIDE - 1) ? SIDE - 1 : obj.x + 1;
+        int right = (obj.x + 1 > WIDTH - 1) ? WIDTH - 1 : obj.x + 1;
         int up = (obj.y - 1 < 0) ? 0 : obj.y - 1;
-        int down = (obj.y + 1 > SIDE - 1) ? SIDE - 1 : obj.y + 1;
+        int down = (obj.y + 1 > HIGHT - 1) ? HIGHT - 1 : obj.y + 1;
         for (int i = left; i <= right; i++) {
             for (int j = up; j <= down; j++) {
                 if (i == obj.x && j == obj.y){}
@@ -71,7 +73,7 @@ public class MinesweeperGame extends Game {
     private void countMineNeighbors() {
         for (int i = 0; i < gameField.length; i++) {
             for (int j = 0; j < gameField[i].length; j++) {
-                GameObject obj = gameField[j][i];
+                GameObject obj = gameField[i][j];
 
                 if (!obj.isMine){
                     List<GameObject> neighs = getNeighbors(obj);
@@ -94,13 +96,43 @@ public class MinesweeperGame extends Game {
                 if (countClosedTiles == countMinesOnField) win();
             }
             else {
-                setCellValueEx(x, y, Color.RED, MINE);
+                setCellValueEx(x, y, Color.RED, MINE, Color.BLACK, 75);
                 gameOver();
             }
 
             if (gameField[y][x].countMineNeighbors > 0){
                 setCellNumber(x, y, gameField[y][x].countMineNeighbors);
                 setCellColor(x, y, Color.GREEN);
+                setCellTextSize(x, y, 65);
+
+                Color color = Color.GRAY;
+                switch(gameField[y][x].countMineNeighbors){
+                    case 1 :
+                        color = Color.CRIMSON;
+                        break; //необязательно
+                    case 2 :
+                        color = Color.BLUE;
+                        break; //необязательно
+                    case 3 :
+                        color = Color.BROWN;
+                        break; //необязательно
+                    case 4 :
+                        color = Color.DEEPPINK;
+                        break; //необязательно
+                    case 5 :
+                        color = Color.DARKORANGE;
+                        break; //необязательно
+                    case 6 :
+                        color = Color.DARKSLATEBLUE;
+                        break; //необязательно
+                    case 7 :
+                        color = Color.CRIMSON;
+                        break; //необязательно
+                    case 8 :
+                        color = Color.FUCHSIA;
+                        break; //необязательно
+                }
+                setCellTextColor(x, y, color);
             }
 
             else if (gameField[y][x].countMineNeighbors == 0 && !gameField[y][x].isMine){
@@ -141,12 +173,12 @@ public class MinesweeperGame extends Game {
 
     private void gameOver(){
         isGameStopped = true;
-        showMessageDialog(Color.DARKRED, "You lose", Color.BLACK, 50);
+        showMessageDialog(Color.DARKRED, "GAME OVER", Color.BLACK, 75);
     }
 
     private void restart(){
         isGameStopped = false;
-        countClosedTiles = SIDE * SIDE;
+        countClosedTiles = WIDTH * HIGHT;
         countFlags = 0;
         countMinesOnField = 0;
         score = 0;
