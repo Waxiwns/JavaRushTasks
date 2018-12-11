@@ -5,7 +5,8 @@ import com.javarush.engine.cell.*;
 public class SnakeGame extends Game {
     private static final int WIDTH = 20;
     private static final int HEIGHT = 15;
-    private Color cellColor = Color.GREENYELLOW;
+    private Color cellColor = Color.LIGHTSLATEGRAY;
+    private Snake snake;
 
     @Override
     public void initialize() {
@@ -14,6 +15,7 @@ public class SnakeGame extends Game {
     }
 
     private void createGame(){
+        snake = new Snake(WIDTH / 2, HEIGHT / 2);
         drawScene();
     }
 
@@ -24,5 +26,6 @@ public class SnakeGame extends Game {
                 setCellColor(j, i, cellColor);
             }
         }
+        snake.draw(this);
     }
 }
