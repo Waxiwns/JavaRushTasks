@@ -3,12 +3,13 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.*;
 
 public class SnakeGame extends Game {
-    public static final int WIDTH = 15;
+    public static final int WIDTH = 20;
     public static final int HEIGHT = 15;
     private Color cellColor = Color.LIGHTSLATEGRAY;
     private Snake snake;
     private int turnDelay;
     private Apple apple;
+    private boolean isGameStopped;
 
     @Override
     public void initialize() {
@@ -20,6 +21,7 @@ public class SnakeGame extends Game {
     public void onTurn(int step) {
         if (!apple.isAlive) createNewApple();
         snake.move(apple);
+        if (!snake.isAlive) gameOver();
         drawScene();
     }
 
@@ -45,6 +47,7 @@ public class SnakeGame extends Game {
         turnDelay = 300;
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
         createNewApple(); // create new apple
+        isGameStopped = false;
 
         drawScene();
         setTurnTimer(turnDelay);
@@ -59,11 +62,18 @@ public class SnakeGame extends Game {
         }
         snake.draw(this);
         apple.draw(this);
+        if (isGameStopped == true) gameOver();
     }
 
     private void createNewApple(){
         int x = getRandomNumber(WIDTH);
         int y = getRandomNumber(HEIGHT);
         apple = new Apple(x, y);
+    }
+
+    private void gameOver(){
+        stopTurnTimer();
+        isGameStopped = true;
+        showMessageDialog(Color.DARKOLIVEGREEN, "GAME OVER", Color.BLACK, 75);
     }
 }

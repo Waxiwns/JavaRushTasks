@@ -58,10 +58,6 @@ public class Snake {
         int x = snakeParts.get(0).x;
         int y = snakeParts.get(0).y;
 
-//        if (direction == UP) y -= 1;
-//        if (direction == DOWN) y += 1;
-//        if (direction == LEFT) x -= 1;
-//        if (direction == RIGHT) x += 1;
         switch (direction){
             case UP:
                 y -= 1;
