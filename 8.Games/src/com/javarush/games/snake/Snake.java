@@ -36,6 +36,10 @@ public class Snake {
         if (this.direction == DOWN && direction == UP) return;
         if (this.direction == LEFT && direction == RIGHT) return;
         if (this.direction == RIGHT && direction == LEFT) return;
+        if (this.direction == LEFT && snakeParts.get(0).x == snakeParts.get(1).x) return;
+        if (this.direction == RIGHT && snakeParts.get(0).x == snakeParts.get(1).x) return;
+        if (this.direction == UP && snakeParts.get(0).y == snakeParts.get(1).y) return;
+        if (this.direction == DOWN && snakeParts.get(0).y == snakeParts.get(1).y) return;
         this.direction = direction;
     }
 
