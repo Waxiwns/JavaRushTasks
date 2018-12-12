@@ -32,6 +32,10 @@ public class Snake {
     }
 
     public void setDirection(Direction direction){
+        if (this.direction == UP && direction == DOWN) return;
+        if (this.direction == DOWN && direction == UP) return;
+        if (this.direction == LEFT && direction == RIGHT) return;
+        if (this.direction == RIGHT && direction == LEFT) return;
         this.direction = direction;
     }
 
@@ -50,20 +54,24 @@ public class Snake {
         int x = snakeParts.get(0).x;
         int y = snakeParts.get(0).y;
 
-        if (direction == UP) y -= 1;
-        if (direction == DOWN) y += 1;
-        if (direction == LEFT) x -= 1;
-        if (direction == RIGHT) x += 1;
-//        switch (direction){
-//            case UP:
-//                y -= 1;
-//            case DOWN:
-//                y += 1;
-//            case LEFT:
-//                x -= 1;
-//            case RIGHT:
-//                x += 1;
-//        }
+//        if (direction == UP) y -= 1;
+//        if (direction == DOWN) y += 1;
+//        if (direction == LEFT) x -= 1;
+//        if (direction == RIGHT) x += 1;
+        switch (direction){
+            case UP:
+                y -= 1;
+                break;
+            case DOWN:
+                y += 1;
+                break;
+            case LEFT:
+                x -= 1;
+                break;
+            case RIGHT:
+                x += 1;
+                break;
+        }
 
         if (x >= SnakeGame.WIDTH || y >= SnakeGame.HEIGHT || x < 0 || y < 0)
             isAlive = false;

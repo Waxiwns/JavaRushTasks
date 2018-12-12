@@ -21,6 +21,24 @@ public class SnakeGame extends Game {
         drawScene();
     }
 
+    @Override
+    public void onKeyPress(Key key) {
+        switch (key) {
+            case UP:
+                snake.setDirection(Direction.UP);
+                break;
+            case DOWN:
+                snake.setDirection(Direction.DOWN);
+                break;
+            case LEFT:
+                snake.setDirection(Direction.LEFT);
+                break;
+            case RIGHT:
+                snake.setDirection(Direction.RIGHT);
+                break;
+        }
+    }
+
     private void createGame(){
         turnDelay = 300;
 
