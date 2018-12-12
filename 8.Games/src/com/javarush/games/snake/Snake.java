@@ -4,12 +4,11 @@ import com.javarush.engine.cell.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.javarush.games.snake.Direction.*;
 
 public class Snake {
     public boolean isAlive = true;
-    private Direction direction = Direction.LEFT;
+    private Direction direction = LEFT;
     private static final String HEAD_SIGN = "\uD83D\uDC7E";
     private static final String BODY_SIGN = "\u26AB";
     private List<GameObject> snakeParts = new ArrayList<>();
@@ -37,8 +36,14 @@ public class Snake {
     }
 
     public void move(){
-//        snakeParts.add(createNewHead());
-//        removeTail();
+        GameObject head = createNewHead();
+
+        if (head.x >= SnakeGame.WIDTH || head.y >= SnakeGame.HEIGHT || head.x < 0 || head.y < 0)
+            isAlive = false;
+        else {
+            snakeParts.add(0, head);
+            removeTail();
+        }
     }
 
     public GameObject createNewHead(){
@@ -59,6 +64,10 @@ public class Snake {
 //            case RIGHT:
 //                x += 1;
 //        }
+
+        if (x >= SnakeGame.WIDTH || y >= SnakeGame.HEIGHT || x < 0 || y < 0)
+            isAlive = false;
+
         return new GameObject(x, y);
     }
 
