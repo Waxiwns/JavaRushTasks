@@ -42,6 +42,8 @@ public class SnakeGame extends Game {
             case RIGHT:
                 snake.setDirection(Direction.RIGHT);
                 break;
+            case SPACE:
+                if (isGameStopped) createGame();
         }
     }
 
@@ -69,9 +71,13 @@ public class SnakeGame extends Game {
     }
 
     private void createNewApple(){
-        int x = getRandomNumber(WIDTH);
-        int y = getRandomNumber(HEIGHT);
-        apple = new Apple(x, y);
+        while (true) {
+            int x = getRandomNumber(WIDTH);
+            int y = getRandomNumber(HEIGHT);
+            apple = new Apple(x, y);
+
+            if (!snake.checkCollision(apple)) return;
+        }
     }
 
     private void gameOver(){
