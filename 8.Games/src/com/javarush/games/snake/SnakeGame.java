@@ -7,6 +7,7 @@ public class SnakeGame extends Game {
     private static final int HEIGHT = 15;
     private Color cellColor = Color.LIGHTSLATEGRAY;
     private Snake snake;
+    private int turnDelay;
 
     @Override
     public void initialize() {
@@ -14,9 +15,18 @@ public class SnakeGame extends Game {
         createGame();
     }
 
+    @Override
+    public void onTurn(int step) {
+        snake.move();
+        drawScene();
+    }
+
     private void createGame(){
+        turnDelay = 300;
+
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
         drawScene();
+        setTurnTimer(turnDelay);
     }
 
     private void drawScene(){
