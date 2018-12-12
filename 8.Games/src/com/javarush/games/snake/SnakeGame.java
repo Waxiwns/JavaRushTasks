@@ -3,7 +3,7 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.*;
 
 public class SnakeGame extends Game {
-    public static final int WIDTH = 20;
+    public static final int WIDTH = 15;
     public static final int HEIGHT = 15;
     private Color cellColor = Color.LIGHTSLATEGRAY;
     private Snake snake;
@@ -44,12 +44,10 @@ public class SnakeGame extends Game {
     private void createGame(){
         turnDelay = 300;
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
+        createNewApple(); // create new apple
 
-        createNewApple();
         drawScene();
         setTurnTimer(turnDelay);
-
-
     }
 
     private void drawScene(){
