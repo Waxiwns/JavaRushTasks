@@ -39,14 +39,16 @@ public class Snake {
         this.direction = direction;
     }
 
-    public void move(){
+    public void move(Apple apple){
         GameObject head = createNewHead();
 
         if (head.x >= SnakeGame.WIDTH || head.y >= SnakeGame.HEIGHT || head.x < 0 || head.y < 0)
             isAlive = false;
         else {
             snakeParts.add(0, head);
-            removeTail();
+            if (snakeParts.get(0).x == apple.x && snakeParts.get(0).y == apple.y)
+                apple.isAlive = false;
+            else removeTail();
         }
     }
 
