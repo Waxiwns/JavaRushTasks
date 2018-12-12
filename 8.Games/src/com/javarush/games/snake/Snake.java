@@ -5,6 +5,8 @@ import com.javarush.engine.cell.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.javarush.games.snake.Direction.*;
+
 public class Snake {
     public boolean isAlive = true;
     private Direction direction = Direction.LEFT;
@@ -35,6 +37,32 @@ public class Snake {
     }
 
     public void move(){
+//        snakeParts.add(createNewHead());
+//        removeTail();
+    }
 
+    public GameObject createNewHead(){
+        int x = snakeParts.get(0).x;
+        int y = snakeParts.get(0).y;
+
+        if (direction == UP) y -= 1;
+        if (direction == DOWN) y += 1;
+        if (direction == LEFT) x -= 1;
+        if (direction == RIGHT) x += 1;
+//        switch (direction){
+//            case UP:
+//                y -= 1;
+//            case DOWN:
+//                y += 1;
+//            case LEFT:
+//                x -= 1;
+//            case RIGHT:
+//                x += 1;
+//        }
+        return new GameObject(x, y);
+    }
+
+    public void removeTail(){
+        snakeParts.remove(snakeParts.size() - 1);
     }
 }
