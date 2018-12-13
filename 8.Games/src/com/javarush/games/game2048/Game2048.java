@@ -46,6 +46,9 @@ public class Game2048 extends Game {
                 setCellColoredNumber(j, i, gameField[i][j]);
             }
         }
+//        int[] row = new int[] {0, 2, 0, 2};
+//        compressRow(row);
+//        mergeRow(row);
     }
 
     private void createNewNumber() {
@@ -147,6 +150,31 @@ public class Game2048 extends Game {
             if (list.get(i) != listcopy.get(i)) truly = true;
         }
 
+        return truly;
+    }
+    private boolean mergeRow(int[] row){
+        boolean truly = false;
+
+        // конвертирую в список потому что проще удалять элементы
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < row.length; i++) {
+            list.add(row[i]);
+        }
+        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
+
+        // проверка на возможность сложить цифры если да то перемещаем
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i) == list.get(i + 1)){
+                list.set(i, list.get(i) * 2);
+                list.set(i + 1, 0);
+            }
+        }
+
+        // конвертируем назад
+        for (int i = 0; i < list.size(); i++) {
+            row[i] = list.get(i);
+            if (list.get(i) != listcopy.get(i)) truly = true;
+        }
         return truly;
     }
 }
