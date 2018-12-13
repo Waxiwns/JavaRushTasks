@@ -2,6 +2,9 @@ package com.javarush.games.game2048;
 
 import com.javarush.engine.cell.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game2048 extends Game {
     private static final int GOAL = 2048;
     private static final int SIDE = 4;
@@ -114,5 +117,36 @@ public class Game2048 extends Game {
     private void setCellColoredNumber(int x, int y, int value){
         if (value != 0) setCellValueEx(x, y, getColorByValue(value), String.valueOf(value));
         else setCellValueEx(x, y, getColorByValue(value), "");
+    }
+
+    private boolean compressRow(int[] row){
+        boolean truly = false;
+
+        // конвертирую в список потому что проще удалять элементы
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < row.length; i++) {
+            list.add(row[i]);
+        }
+        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
+
+        // проверка на возможность переместить цифры если да то перемещаем
+        int count = list.size();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (list.get(i) > 0){
+                list.add(0, list.get(i));
+                list.remove(i + 1);
+                i++;
+            }
+            count--;
+            if (count == 0) break;
+        }
+
+        // конвертируем назад
+        for (int i = 0; i < list.size(); i++) {
+            row[i] = list.get(i);
+            if (list.get(i) != listcopy.get(i)) truly = true;
+        }
+
+        return truly;
     }
 }
