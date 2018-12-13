@@ -17,6 +17,24 @@ public class Game2048 extends Game {
         drawScene();
     }
 
+    @Override
+    public void onKeyPress(Key key) {
+        switch (key) {
+            case UP:
+                moveUp();
+                break;
+            case DOWN:
+                moveDown();
+                break;
+            case LEFT:
+                moveLeft();
+                break;
+            case RIGHT:
+                moveRight();
+                break;
+        }
+    }
+
     private void createGame(){
 //        gameField[0][0] = 0;
 //        gameField[0][1] = 2;
@@ -177,4 +195,18 @@ public class Game2048 extends Game {
         }
         return truly;
     }
+
+    private void moveLeft(){
+
+    }
+    private void moveRight(){
+
+    }
+    private void moveUp(){
+
+    }
+    private void moveDown(){
+
+    }
+
 }
