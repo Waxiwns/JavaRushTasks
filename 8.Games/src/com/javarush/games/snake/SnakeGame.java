@@ -21,6 +21,8 @@ public class SnakeGame extends Game {
 
     @Override
     public void onTurn(int step) {
+//        showMessageDialog(Color.GREENYELLOW, "!!! YOU WIN !!!", Color.HOTPINK, 75);
+
         if (!apple.isAlive) {
             score += 5;
             setScore(score);
