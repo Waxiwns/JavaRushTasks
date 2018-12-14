@@ -68,32 +68,6 @@ public class Game2048 extends Game {
                 setCellColoredNumber(j, i, gameField[i][j]);
             }
         }
-
-
-
-
-
-
-
-//        int[] row = new int[] {2, 2, 0, 2};
-//        for (int i = 0; i < row.length; i++) {
-//            System.out.print(row[i]);
-//        }
-//        System.out.println();
-//        compressRow(row);
-//        for (int i = 0; i < row.length; i++) {
-//            System.out.print(row[i]);
-//        }
-//        System.out.println();
-//        mergeRow(row);
-//        for (int i = 0; i < row.length; i++) {
-//            System.out.print(row[i]);
-//        }
-//        System.out.println();
-//        compressRow(row);
-//        for (int i = 0; i < row.length; i++) {
-//            System.out.print(row[i]);
-//        }
     }
 
     private void createNewNumber() {
@@ -180,31 +154,6 @@ public class Game2048 extends Game {
                 }
             }
         }
-//
-//        // конвертирую в список потому что проще удалять элементы
-//        List<Integer> list = new ArrayList<>();
-//        for (int i = 0; i < row.length; i++) {
-//            list.add(row[i]);
-//        }
-//        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
-//
-//        // проверка на возможность переместить цифры если да то перемещаем
-//        int count = list.size();
-//        for (int i = list.size() - 1; i >= 0; i--) {
-//            if (list.get(i) > 0){
-//                list.add(0, list.get(i));
-//                list.remove(i + 1);
-//                i++;
-//            }
-//            count--;
-//            if (count == 0) break;
-//        }
-//
-//        // конвертируем назад
-//        for (int i = 0; i < list.size(); i++) {
-//            row[i] = list.get(i);
-//            if (list.get(i) != listcopy.get(i)) truly = true;
-//        }
 
         return truly;
     }
@@ -219,27 +168,21 @@ public class Game2048 extends Game {
                 }
             }
 
-//        // конвертирую в список потому что проще удалять элементы
-//        List<Integer> list = new ArrayList<>();
-//        for (int i = 0; i < row.length; i++) {
-//            list.add(row[i]);
-//        }
-//        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
-//
-//        // проверка на возможность сложить цифры если да то перемещаем
-//        for (int i = 0; i < list.size() - 1; i++) {
-//            if (list.get(i) > 0 && list.get(i) == list.get(i + 1)){
-//                list.set(i, list.get(i) * 2);
-//                list.set(i + 1, 0);
-//            }
-//        }
-//
-//        // конвертируем назад
-//        for (int i = 0; i < list.size(); i++) {
-//            row[i] = list.get(i);
-//            if (list.get(i) != listcopy.get(i)) truly = true;
-//        }
         return truly;
+    }
+
+    private void rotateClockwise(){
+        int tmp;
+
+        for (int i = 0; i < SIDE / 2; i++) {
+            for (int j = i; j < SIDE - 1 - i; j++) {
+                tmp = gameField[i][j];
+                gameField[i][j] = gameField[SIDE - 1 - j][i];
+                gameField[SIDE - 1 - j][i] = gameField[SIDE - 1 - i][SIDE - 1 - j];
+                gameField[SIDE - 1 - i][SIDE - 1 - j] = gameField[j][SIDE - 1 - i];
+                gameField[j][SIDE - 1 - i] = tmp;
+            }
+        }
     }
 
     private void moveLeft(){
@@ -257,13 +200,25 @@ public class Game2048 extends Game {
         if (counter > 0) createNewNumber();
     }
     private void moveRight(){
-
+        rotateClockwise();
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
     }
     private void moveUp(){
-
+        rotateClockwise();
+        rotateClockwise();
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
     }
     private void moveDown(){
-
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
+        rotateClockwise();
     }
 
 }
