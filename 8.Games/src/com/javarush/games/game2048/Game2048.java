@@ -22,15 +22,19 @@ public class Game2048 extends Game {
         switch (key) {
             case UP:
                 moveUp();
+                drawScene();
                 break;
             case DOWN:
                 moveDown();
+                drawScene();
                 break;
             case LEFT:
                 moveLeft();
+                drawScene();
                 break;
             case RIGHT:
                 moveRight();
+                drawScene();
                 break;
         }
     }
@@ -64,9 +68,32 @@ public class Game2048 extends Game {
                 setCellColoredNumber(j, i, gameField[i][j]);
             }
         }
-//        int[] row = new int[] {0, 2, 0, 2};
+
+
+
+
+
+
+
+//        int[] row = new int[] {2, 2, 0, 2};
+//        for (int i = 0; i < row.length; i++) {
+//            System.out.print(row[i]);
+//        }
+//        System.out.println();
 //        compressRow(row);
+//        for (int i = 0; i < row.length; i++) {
+//            System.out.print(row[i]);
+//        }
+//        System.out.println();
 //        mergeRow(row);
+//        for (int i = 0; i < row.length; i++) {
+//            System.out.print(row[i]);
+//        }
+//        System.out.println();
+//        compressRow(row);
+//        for (int i = 0; i < row.length; i++) {
+//            System.out.print(row[i]);
+//        }
     }
 
     private void createNewNumber() {
@@ -80,13 +107,10 @@ public class Game2048 extends Game {
             if (gameField[y][x] == 0) break;
         }
 
-        switch (getRandomNumber(10)) {
-            case 9:
-                gameField[y][x] = 4;
-                break;
-            default:
-                gameField[y][x] = 2;
-        }
+        if (getRandomNumber(10) > 9)
+            gameField[y][x] = 4;
+        else
+            gameField[y][x] = 2;
     }
 
     private Color getColorByValue(int i){
@@ -142,62 +166,95 @@ public class Game2048 extends Game {
 
     private boolean compressRow(int[] row){
         boolean truly = false;
+        int changes = 1;
 
-        // конвертирую в список потому что проще удалять элементы
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < row.length; i++) {
-            list.add(row[i]);
-        }
-        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
+        while (changes > 0){
+            changes = 0;
 
-        // проверка на возможность переместить цифры если да то перемещаем
-        int count = list.size();
-        for (int i = list.size() - 1; i >= 0; i--) {
-            if (list.get(i) > 0){
-                list.add(0, list.get(i));
-                list.remove(i + 1);
-                i++;
+            for (int i = 0; i < row.length - 1; i++) {
+                if (row[i] == 0 && row[i + 1] > 0){
+                    row[i] = row[i + 1];
+                    row[i + 1] = 0;
+                    truly = true;
+                    changes++;
+                }
             }
-            count--;
-            if (count == 0) break;
         }
-
-        // конвертируем назад
-        for (int i = 0; i < list.size(); i++) {
-            row[i] = list.get(i);
-            if (list.get(i) != listcopy.get(i)) truly = true;
-        }
+//
+//        // конвертирую в список потому что проще удалять элементы
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < row.length; i++) {
+//            list.add(row[i]);
+//        }
+//        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
+//
+//        // проверка на возможность переместить цифры если да то перемещаем
+//        int count = list.size();
+//        for (int i = list.size() - 1; i >= 0; i--) {
+//            if (list.get(i) > 0){
+//                list.add(0, list.get(i));
+//                list.remove(i + 1);
+//                i++;
+//            }
+//            count--;
+//            if (count == 0) break;
+//        }
+//
+//        // конвертируем назад
+//        for (int i = 0; i < list.size(); i++) {
+//            row[i] = list.get(i);
+//            if (list.get(i) != listcopy.get(i)) truly = true;
+//        }
 
         return truly;
     }
     private boolean mergeRow(int[] row){
         boolean truly = false;
 
-        // конвертирую в список потому что проще удалять элементы
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < row.length; i++) {
-            list.add(row[i]);
-        }
-        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
-
-        // проверка на возможность сложить цифры если да то перемещаем
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i) == list.get(i + 1)){
-                list.set(i, list.get(i) * 2);
-                list.set(i + 1, 0);
+            for (int i = 0; i < row.length - 1; i++) {
+                if (row[i] > 0 && row[i] == row[i + 1]){
+                    row[i] += row[i + 1];
+                    row[i + 1] = 0;
+                    truly = true;
+                }
             }
-        }
 
-        // конвертируем назад
-        for (int i = 0; i < list.size(); i++) {
-            row[i] = list.get(i);
-            if (list.get(i) != listcopy.get(i)) truly = true;
-        }
+//        // конвертирую в список потому что проще удалять элементы
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < row.length; i++) {
+//            list.add(row[i]);
+//        }
+//        List<Integer> listcopy = new ArrayList<>(list); // копия для сравнения если разные в онце то отдаем true
+//
+//        // проверка на возможность сложить цифры если да то перемещаем
+//        for (int i = 0; i < list.size() - 1; i++) {
+//            if (list.get(i) > 0 && list.get(i) == list.get(i + 1)){
+//                list.set(i, list.get(i) * 2);
+//                list.set(i + 1, 0);
+//            }
+//        }
+//
+//        // конвертируем назад
+//        for (int i = 0; i < list.size(); i++) {
+//            row[i] = list.get(i);
+//            if (list.get(i) != listcopy.get(i)) truly = true;
+//        }
         return truly;
     }
 
     private void moveLeft(){
+        int counter = 0;
 
+        for (int i = 0; i < gameField.length; i++) {
+            int[] row = gameField[i];
+
+            if (compressRow(row) | mergeRow(row) |  compressRow(row)){
+                gameField[i] = row;
+                counter++;
+            }
+        }
+
+        if (counter > 0) createNewNumber();
     }
     private void moveRight(){
 
