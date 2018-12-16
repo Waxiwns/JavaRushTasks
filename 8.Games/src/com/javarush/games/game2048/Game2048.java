@@ -240,4 +240,29 @@ public class Game2048 extends Game {
         showMessageDialog(Color.NONE, "You Win! Congrats", Color.LAWNGREEN, 60);
         isGameStopped = true;
     }
+
+    private boolean canUserMove(){
+        // если есть пустые поля
+        for (int y = 0; y < gameField.length; y++) {
+            for (int x = 0; x < gameField[y].length; x++) {
+                if (gameField[y][x] == 0) return true;
+            }
+        }
+
+        // если есть одинаковые поля по горизонтали
+        for (int y = 0; y < gameField.length; y++) {
+            for (int x = 0; x < gameField[y].length - 1; x++) {
+                if (gameField[y][x] == gameField[y][x + 1]) return true;
+            }
+        }
+
+        // если есть одинаковые поля по вертикали
+        for (int x = 0; x < gameField.length; x++) {
+            for (int y = 0; y < gameField[x].length - 1; y++) {
+                if (gameField[y][x] == gameField[y + 1][x]) return true;
+            }
+        }
+
+        return false;
+    }
 }
