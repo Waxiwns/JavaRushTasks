@@ -9,6 +9,7 @@ public class Game2048 extends Game {
     private static final int GOAL = 2048;
     private static final int SIDE = 4;
     private int[][] gameField = new int[SIDE][SIDE];
+    private boolean isGameStopped;
 
     @Override
     public void initialize() {
@@ -70,7 +71,10 @@ public class Game2048 extends Game {
         }
     }
 
+    // новая плитка
     private void createNewNumber() {
+        if (getMaxTileValue() == GOAL) win(); // если есть ячейка  == 2048 то вызываем метод win
+
         int x;
         int y;
 
@@ -221,4 +225,19 @@ public class Game2048 extends Game {
         rotateClockwise();
     }
 
+    private int getMaxTileValue(){
+        int max = 0;
+
+        for (int i = 0; i < gameField.length; i++) {
+            for (int j = 0; j < gameField[i].length; j++) {
+                if (gameField[i][j] > max) max = gameField[i][j];
+            }
+        }
+        return max;
+    }
+
+    private void win(){
+        showMessageDialog(Color.NONE, "You Win! Congrats", Color.LAWNGREEN, 60);
+        isGameStopped = true;
+    }
 }
