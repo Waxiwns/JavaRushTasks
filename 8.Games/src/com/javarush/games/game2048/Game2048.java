@@ -20,29 +20,40 @@ public class Game2048 extends Game {
 
     @Override
     public void onKeyPress(Key key) {
-        if (!canUserMove()) {
+//        if (isGameStopped) restart = true;
+        if (!isGameStopped && !canUserMove()) {
             gameOver();
             return;
         }
 
-        switch (key) {
-            case UP:
-                moveUp();
+        if (isGameStopped){
+            if (key == Key.SPACE){
+                isGameStopped = false;
+                createGame();
                 drawScene();
-                break;
-            case DOWN:
-                moveDown();
-                drawScene();
-                break;
-            case LEFT:
-                moveLeft();
-                drawScene();
-                break;
-            case RIGHT:
-                moveRight();
-                drawScene();
-                break;
+            }
         }
+        else {
+            switch (key) {
+                case UP:
+                    moveUp();
+                    drawScene();
+                    break;
+                case DOWN:
+                    moveDown();
+                    drawScene();
+                    break;
+                case LEFT:
+                    moveLeft();
+                    drawScene();
+                    break;
+                case RIGHT:
+                    moveRight();
+                    drawScene();
+                    break;
+            }
+        }
+
     }
 
     private void createGame(){
