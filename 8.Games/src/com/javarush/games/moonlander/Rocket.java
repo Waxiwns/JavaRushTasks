@@ -31,5 +31,23 @@ public class Rocket extends GameObject {
             }
             x += speedX;
         }
+
+        checkBoarders();
+    }
+
+    // ограничение движения за пределы
+    private void checkBoarders(){
+        if (x < 0){
+            x = 0;
+            speedX = 0;
+        }
+        if (x + width > MoonLanderGame.WIDTH) {
+            x = MoonLanderGame.WIDTH - width;
+            speedX = 0;
+        }
+        if (y < 0){
+            y = 0;
+            speedY = 0;
+        }
     }
 }
