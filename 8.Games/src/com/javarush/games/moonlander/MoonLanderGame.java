@@ -22,7 +22,7 @@ public class MoonLanderGame extends Game {
     // происходящие действия за каждый ход
     @Override
     public void onTurn(int step) {
-        rocket.move();      // ракеты движется
+        rocket.move(isUpPressed, isLeftPressed, isRightPressed);      // ракеты движется
         drawScene();        // отрисовка
 
     }

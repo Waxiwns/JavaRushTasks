@@ -155,3 +155,24 @@ import com.javarush.engine.cell.*;
 8. Метод onKeyReleased(Key) должен устанавливать полю isRightPressed значение false, если параметр метода равен Key.RIGHT.
 
 
+
+Игра Moon Lander (10/23)
+Продолжим реализацию движения ракеты. Она должна двигаться и по вертикали, и по горизонтали.
+Давай внесем соответствующие изменения в метод move: теперь он будет принимать в качестве параметров состояния нажатия клавиш. Первый параметр — это isUpPressed, второй — isLeftPressed, третий — isRightPressed.
+Для установки скорости движения по оси X создадим переменную speedX. Значение этой переменной, как и speedY, будет изменяться в методе move в зависимости от нажатых клавиш. Также не забудь об изменении самих координат(x и y).
+
+
+Требования:
+1. В классе Rocket должно существовать приватное поле speedX типа double, проинициализированное при объявлении значением 0.
+2. В классе Rocket должен существовать публичный метод void move(boolean isUpPressed, boolean isLeftPressed, boolean isRightPressed).
+3. В классе Rocket не должен существовать публичный метод void move().
+4. В методе move(boolean, boolean, boolean) значение поля speedY должно уменьшаться на значение boost, если параметр метода isUpPressed равен true.
+5. В методе move(boolean, boolean, boolean) значение поля speedY должно увеличиваться на значение boost, если параметр метода isUpPressed равен false.
+6. В методе move(boolean, boolean, boolean) значение поля y должно быть увеличено на значение speedY после того, как поле speedY было изменено.
+7. В методе move(boolean, boolean, boolean) значение поля speedX должно уменьшаться на значение boost, если параметр метода isLeftPressed равен true.
+8. В методе move(boolean, boolean, boolean) значение поля speedX должно увеличиваться на значение boost, если параметр метода isRightPressed равен true.
+9. В методе move(boolean, boolean, boolean) значение поля x должно быть увеличено на значение speedX после того, как поле speedX было изменено.
+10. В методе onTurn(int) класса MoonLanderGame у объекта rocket должен быть вызван метод move(boolean, boolean, boolean) с параметрами: isUpPressed, isLeftPressed, isRightPressed.
+
+
+
