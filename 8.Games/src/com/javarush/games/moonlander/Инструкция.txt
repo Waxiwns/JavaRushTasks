@@ -33,3 +33,22 @@ import com.javarush.engine.cell.*;
 7. В классе MoonLanderGame должен быть импорт всего содержимого пакета com.javarush.engine.cell.
 
 
+
+Игра Moon Lander (2/23)
+На данном этапе давай создадим метод drawScene(), который будет отвечать за отрисовку игрового поля.
+Сперва в этом методе мы будем окрашивать все ячейки игрового поля в один цвет.
+Также нам понадобится метод createGame(), отвечающий за создание игры.
+Для начала мы будем вызывать в нем только метод отрисовки drawScene().
+Сам метод createGame() вызовем в методе initialize() после вызова setScreenSize(int, int).
+
+
+Требования:
+1. В классе MoonLanderGame должен существовать приватный метод void createGame().
+2. В классе MoonLanderGame должен существовать приватный метод void drawScene().
+3. В методе createGame() должен быть вызван метод drawScene().
+4. В методе initialize() должен быть вызван метод createGame().
+5. В методе initialize() вызов метода createGame() происходит после вызова метода setScreenSize(int, int).
+6. В методе drawScene() для каждой ячейки отображения необходимо вызвать метод setCellColor(int, int, Color) с параметрами: координаты x и y и любой цвет (например, Color.BLACK).
+
+
+
