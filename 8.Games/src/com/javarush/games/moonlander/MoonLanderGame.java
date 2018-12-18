@@ -7,16 +7,18 @@ public class MoonLanderGame extends Game {
     public static final int HEIGHT = 64;    // y - высота
     private static final Color allCellColor = Color.DARKORANGE; // цвет всех ячеек - фон
     private Rocket rocket; // ракета
+    private GameObject landscape; // ланшафт
 
     @Override
     public void initialize() {
+        showGrid(false);
         setScreenSize(WIDTH, HEIGHT); // меняем размер игрового бокса
         createGame();                 // создание игры
     }
 
     // создание игры
     private void createGame(){
-        rocket = new Rocket(WIDTH / 2, 0); // создание ракеты
+        createGameObjects();
         drawScene();    // отрисовка
     }
 
@@ -27,6 +29,15 @@ public class MoonLanderGame extends Game {
                 setCellColor(j, i, allCellColor);   // закрашиваем все ячейки в нужный фоновый цвет
             }
         }
+        landscape.draw(this); // отрисовка ланшафта
         rocket.draw(this); // отрисовка ракеты
+    }
+
+    private void createGameObjects(){
+        rocket = new Rocket(WIDTH / 2, 0); // создание ракеты
+        landscape = new GameObject(
+                WIDTH - ShapeMatrix.LANDSCAPE[0].length,
+                HEIGHT - ShapeMatrix.LANDSCAPE.length,
+                ShapeMatrix.LANDSCAPE);                         // создание ланшафта в нужных координатах
     }
 }
