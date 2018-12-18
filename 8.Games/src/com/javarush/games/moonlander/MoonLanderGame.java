@@ -43,9 +43,11 @@ public class MoonLanderGame extends Game {
                 isUpPressed = true;
                 break;
             case LEFT:
+                isRightPressed = false;
                 isLeftPressed = true;
                 break;
             case RIGHT:
+                isLeftPressed = false;
                 isRightPressed = true;
                 break;
         }

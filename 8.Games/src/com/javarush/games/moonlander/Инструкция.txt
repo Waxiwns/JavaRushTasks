@@ -137,3 +137,21 @@ import com.javarush.engine.cell.*;
 4. Поле isUpPressed должно быть инициализировано в методе createGame() значением false.
 5. Поле isLeftPressed должно быть инициализировано в методе createGame() значением false.
 6. Поле isRightPressed должно быть инициализировано в методе createGame() значением false.
+
+
+
+Игра Moon Lander (9/23)
+На этом этапе займемся реализацией методов onKeyPress и onKeyReleased. Как ты мог понять из названия, метод onKeyPress вызывается при нажатии любой клавиши, а метод onKeyReleased при отпускании. Перейдем к реализации метода onKeyPress. Он должен обрабатывать нажатия клавиш вверх, влево и вправо и выставлять флагам (полям) соответствующие значения. Учти, что при нажатии клавиши влево нужно установить значение false флагу isRightPressed, и наоборот. Кроме того, не забудь сбрасывать соответствующие флаги при отпускании клавиш в методе onKeyReleased.
+
+
+Требования:
+1. В классе MoonLanderGame должен быть переопределен метод onKeyPress(Key) родительского класса Game.
+2. Метод onKeyPress(Key) должен устанавливать полю isUpPressed значение true, если параметр метода равен Key.UP.
+3. Если параметр метода onKeyPress(Key) равен Key.LEFT, метод должен устанавливать полю isLeftPressed значение true, а полю isRightPressed значение false.
+4. Если параметр метода onKeyPress(Key) равен Key.RIGHT, метод должен устанавливать полю isRightPressed значение true, а полю isLeftPressed значение false.
+5. В классе MoonLanderGame должен быть переопределен метод onKeyReleased(Key) родительского класса Game.
+6. Метод onKeyReleased(Key) должен устанавливать полю isUpPressed значение false, если параметр метода равен Key.UP.
+7. Метод onKeyReleased(Key) должен устанавливать полю isLeftPressed значение false, если параметр метода равен Key.LEFT.
+8. Метод onKeyReleased(Key) должен устанавливать полю isRightPressed значение false, если параметр метода равен Key.RIGHT.
+
+
