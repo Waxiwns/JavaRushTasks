@@ -8,6 +8,9 @@ public class MoonLanderGame extends Game {
     private static final Color allCellColor = Color.DARKORANGE; // цвет всех ячеек - фон
     private Rocket rocket; // ракета
     private GameObject landscape; // ланшафт
+    private boolean isUpPressed;        // нажата ли кнопка
+    private boolean isLeftPressed;      // нажата ли кнопка
+    private boolean isRightPressed;     // нажата ли кнопка
 
     @Override
     public void initialize() {
@@ -32,8 +35,43 @@ public class MoonLanderGame extends Game {
         }
     }
 
+    // если кнопка нажата то переменная true
+    @Override
+    public void onKeyPress(Key key) {
+        switch (key){
+            case UP:
+                isUpPressed = true;
+                break;
+            case LEFT:
+                isLeftPressed = true;
+                break;
+            case RIGHT:
+                isRightPressed = true;
+                break;
+        }
+    }
+
+//    если кнопка отпущена то переменная false
+    @Override
+    public void onKeyReleased(Key key) {
+        switch (key){
+            case UP:
+                isUpPressed = false;
+                break;
+            case LEFT:
+                isLeftPressed = false;
+                break;
+            case RIGHT:
+                isRightPressed = false;
+                break;
+        }
+    }
+
     // создание игры
     private void createGame(){
+        isUpPressed = false;
+        isLeftPressed = false;
+        isRightPressed = false;
         createGameObjects();    // создание ланшафта и ракеты
         drawScene();    // отрисовка
         setTurnTimer(50); // установка скорости игры
