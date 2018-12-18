@@ -16,16 +16,33 @@ public class MoonLanderGame extends Game {
         createGame();                 // создание игры
     }
 
+    // происходящие действия за каждый ход
+    @Override
+    public void onTurn(int step) {
+        rocket.move();      // ракеты движется
+        drawScene();        // отрисовка
+
+    }
+
+    // переопределяем метод что б не выдавал исключний когда координаты не попадают в игровое поле
+    @Override
+    public void setCellColor(int x, int y, Color color) {
+        if (x < WIDTH && x >= 0 && y < HEIGHT && y >= 0) {
+            super.setCellColor(x, y, color);
+        }
+    }
+
     // создание игры
     private void createGame(){
-        createGameObjects();
+        createGameObjects();    // создание ланшафта и ракеты
         drawScene();    // отрисовка
+        setTurnTimer(50); // установка скорости игры
     }
 
     // отрисовка игры
     private void drawScene(){
-        for (int i = 0; i < HEIGHT; i++) {              // x
-            for (int j = 0; j < WIDTH; j++) {           // y
+        for (int i = 0; i < HEIGHT; i++) {              // y
+            for (int j = 0; j < WIDTH; j++) {           // x
                 setCellColor(j, i, allCellColor);   // закрашиваем все ячейки в нужный фоновый цвет
             }
         }
