@@ -1,9 +1,10 @@
 package com.javarush.games.moonlander;
 
 public class Rocket extends GameObject {
-    private double speedY = 0; // скорость движения вниз
-    private double speedX = 0; // скорость движения лево право
+    private double speedY = 0.0; // скорость движения вниз
+    private double speedX = 0.0; // скорость движения лево право
     private double boost = 0.05;    // ускорение
+    private double slowdown = boost / 10;    // плавное торможения после отпускания клавиши
 
     public Rocket(double x, double y) {
         super(x, y, ShapeMatrix.ROCKET);
@@ -32,11 +33,21 @@ public class Rocket extends GameObject {
             x += speedX;
         }
 
-        checkBoarders();
+        // плавное торможение
+        if (!isLeftPressed && !isRightPressed){
+            if (speedX >= -slowdown && speedX <= slowdown)
+                speedX = 0;
+            if (speedX > slowdown)
+                speedX -= slowdown;
+            if (speedX < -slowdown)
+                speedX += slowdown;
+            x += speedX;
+        }
+        checkBorders();
     }
 
     // ограничение движения за пределы
-    private void checkBoarders(){
+    private void checkBorders(){
         if (x < 0){
             x = 0;
             speedX = 0;
