@@ -23,6 +23,7 @@ public class MoonLanderGame extends Game {
     @Override
     public void onTurn(int step) {
         rocket.move(isUpPressed, isLeftPressed, isRightPressed);      // ракеты движется
+        check(); // проверка на пересечение с ландшафтом
         drawScene();        // отрисовка
 
     }
@@ -96,5 +97,18 @@ public class MoonLanderGame extends Game {
                 WIDTH - ShapeMatrix.LANDSCAPE[0].length,
                 HEIGHT - ShapeMatrix.LANDSCAPE.length,
                 ShapeMatrix.LANDSCAPE);                         // создание ланшафта в нужных координатах
+    }
+
+//    проверка на пересечение с ландшафтом
+    private void check(){
+
+    }
+
+    private void win(){
+
+    }
+
+    private void gameOver(){
+
     }
 }
