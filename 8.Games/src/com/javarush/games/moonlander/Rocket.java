@@ -1,15 +1,22 @@
 package com.javarush.games.moonlander;
 
 import com.javarush.engine.cell.*;
+import java.util.Arrays;
 
 public class Rocket extends GameObject {
     private double speedY = 0; // скорость движения вниз
     private double speedX = 0; // скорость движения лево право
     private double boost = 0.05;    // ускорение
     private double slowdown = boost / 10;    // плавное торможения после отпускания клавиши
+    private RocketFire downFire;    // нижняя тяга
+    private RocketFire leftFire;    // левая тяга
+    private RocketFire rightFire;   // правая тягя
 
     public Rocket(double x, double y) {
         super(x, y, ShapeMatrix.ROCKET);
+        downFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_DOWN_1, ShapeMatrix.FIRE_DOWN_2, ShapeMatrix.FIRE_DOWN_3));
+        leftFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_SIDE_1, ShapeMatrix.FIRE_SIDE_2));
+        rightFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_SIDE_1, ShapeMatrix.FIRE_SIDE_2));
     }
 
     // движение ракеты
