@@ -8,6 +8,7 @@ public class MoonLanderGame extends Game {
     private static final Color allCellColor = Color.DARKORANGE; // цвет всех ячеек - фон
     private Rocket rocket; // ракета
     private GameObject landscape; // ланшафт
+    private GameObject platform; // платформа
     private boolean isUpPressed;        // нажата ли кнопка
     private boolean isLeftPressed;      // нажата ли кнопка
     private boolean isRightPressed;     // нажата ли кнопка
@@ -97,18 +98,22 @@ public class MoonLanderGame extends Game {
                 WIDTH - ShapeMatrix.LANDSCAPE[0].length,
                 HEIGHT - ShapeMatrix.LANDSCAPE.length,
                 ShapeMatrix.LANDSCAPE);                         // создание ланшафта в нужных координатах
+        platform = new GameObject(23, HEIGHT - 1, ShapeMatrix.PLATFORM);  // создание платформы
     }
 
 //    проверка на пересечение с ландшафтом
     private void check(){
-
+        if (rocket.isCollision(landscape) && !rocket.isCollision(platform)) gameOver();
+        if (rocket.isCollision(platform)) win();
     }
 
     private void win(){
+        showMessageDialog(Color.CADETBLUE, "You WIN! CONGRATS", Color.GOLD, 50);
 
     }
 
     private void gameOver(){
+        showMessageDialog(Color.DARKRED, "GAME OVER", Color.BLACK, 75);
 
     }
 }
