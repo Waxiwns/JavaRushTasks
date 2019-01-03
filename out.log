@@ -31504,3 +31504,339 @@ java.lang.NullPointerException
 2019-01-03 14:38:37 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
 2019-01-03 14:39:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
 2019-01-03 14:39:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 14:39:32 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 14:39:32 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 14:39:41 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 14:39:41 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 200
+2019-01-03 14:39:42 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 14:39:43 INFO  ApacheHttpClient.getTaskTemplateInfo(344) - responseCode = 200
+2019-01-03 14:39:45 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 14:39:45 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 14:39:46 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 14:39:46 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 14:39:48 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 14:40:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 14:41:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 14:42:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 14:43:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 14:44:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:45:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:46:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:47:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:47:07 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:07 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:07 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:07 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:47:07 INFO  ApacheHttpClient.completed(27) - responseCode = 405
+2019-01-03 14:47:07 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:47:07 ERROR TaskCompleted.run(130) - Ошибка во время проверки задания!
+
+ StatusCode: 405 Not Allowed : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:11 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:11 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:11 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:11 INFO  ApacheHttpClient.completed(27) - responseCode = 405
+2019-01-03 14:47:11 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:47:11 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:47:11 ERROR TaskCompleted.run(130) - Ошибка во время проверки задания!
+
+ StatusCode: 405 Not Allowed : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:19 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:19 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:19 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:47:19 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:47:19 ERROR ValidateButton.actionPerformed(87) - Не выбрана задача!
+2019-01-03 14:47:25 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:25 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:25 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:47:25 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:47:25 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:47:31 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:31 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:32 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:47:32 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:47:32 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:47:41 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:47:41 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:47:41 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:47:41 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:47:41 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:48:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:48:06 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:48:06 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:48:06 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:48:06 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:48:06 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:48:08 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:48:08 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:48:08 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:48:08 INFO  ApacheHttpClient.completed(27) - responseCode = 405
+2019-01-03 14:48:08 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:48:08 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:48:08 ERROR TaskCompleted.run(130) - Ошибка во время проверки задания!
+
+ StatusCode: 405 Not Allowed : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:48:14 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:48:14 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:48:14 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:48:14 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:49:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:50:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:51:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:52:02 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:52:02 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:52:02 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:52:02 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:52:02 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:52:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:53:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:53:59 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:53:59 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:53:59 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 503
+2019-01-03 14:53:59 ERROR ApacheHttpClient.getFilteredTasks(332) - Ошибка во время получения списка задач. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.MismatchedInputException
+2019-01-03 14:53:59 WARN  TheNewTaskChooserDialog.<init>(62) - Невозможно отобразить список задач, так как он равен null.
+2019-01-03 14:54:02 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:54:02 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:54:02 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:54:02 INFO  ApacheHttpClient.completed(27) - responseCode = 405
+2019-01-03 14:54:02 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:54:02 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:54:02 ERROR TaskCompleted.run(130) - Ошибка во время проверки задания!
+
+ StatusCode: 405 Not Allowed : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:54:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:54:09 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:54:09 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:54:12 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 503
+2019-01-03 14:54:12 ERROR JavaRushUtil.isPluginNeedUpdate(495) - Ошибка во время проверки версии плагина JavaRush. : com.fasterxml.jackson.core.JsonParseException
+2019-01-03 14:54:12 INFO  ApacheHttpClient.getTask(475) - responseCode = 503
+2019-01-03 14:54:12 ERROR ApacheHttpClient.getTask(480) - Ошибка во время выгрузки задачи. Убедитесь в доступности сети и попробуйте снова. : com.fasterxml.jackson.databind.exc.InvalidFormatException
+2019-01-03 14:55:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:56:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:57:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:58:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 14:59:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:00:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:01:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:02:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:03:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:04:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:05:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:06:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:07:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:08:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:09:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:10:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:11:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:12:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:13:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:14:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:15:00 INFO  ApacheHttpClient.testConnection(190) - responseCode = 503
+2019-01-03 15:15:00 WARN  ApacheHttpClient.testConnection(195) - HTTP/1.1 503 Service Temporarily Unavailable [Server: nginx, Date: Thu, 03 Jan 2019 13:14:59 GMT, Content-Type: text/html, Content-Length: 311, Connection: keep-alive, ETag: "5c0a89b3-137"] [Content-Length: 311,Chunked: false]
+2019-01-03 15:15:00 INFO  ApacheHttpClient.testConnection(201) - result = false
+2019-01-03 15:15:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:15:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:16:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:16:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:17:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:17:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:17:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:18:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:19:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:20:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:21:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:22:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:23:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:24:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:25:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:26:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:27:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:28:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:29:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:30:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 405
+2019-01-03 15:31:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:32:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:32:12 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:32:17 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 404
+2019-01-03 15:32:17 WARN  JavaRushUtil.updatePlugin(521) - Ошибка загрузки дескриптора плагина из файла.
+2019-01-03 15:32:20 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:32:21 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:32:23 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:32:23 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:33:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:34:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:34:37 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:34:39 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 404
+2019-01-03 15:34:39 WARN  JavaRushUtil.updatePlugin(521) - Ошибка загрузки дескриптора плагина из файла.
+2019-01-03 15:34:40 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 200
+2019-01-03 15:34:59 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:35:03 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 404
+2019-01-03 15:35:03 WARN  JavaRushUtil.updatePlugin(521) - Ошибка загрузки дескриптора плагина из файла.
+2019-01-03 15:35:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:35:07 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 200
+2019-01-03 15:35:08 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:35:08 INFO  ApacheHttpClient.getTaskTemplateInfo(344) - responseCode = 200
+2019-01-03 15:35:14 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 15:35:14 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 15:35:15 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 15:35:15 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 15:35:15 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:36:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:37:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:38:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:39:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:40:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:40:59 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:41:01 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 404
+2019-01-03 15:41:01 WARN  JavaRushUtil.updatePlugin(521) - Ошибка загрузки дескриптора плагина из файла.
+2019-01-03 15:41:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:41:05 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:41:05 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:41:07 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:41:53 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:41:54 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:41:55 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:41:57 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:42:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:43:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:43:26 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:43:28 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:43:55 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:43:57 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:44:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:45:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:46:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:46:45 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:46:47 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:46:47 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:46:48 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:47:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:47:16 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:47:18 WARN  JavaRushUtil.getCurrentTask(70) - Ошибка получения ключа задачи.
+2019-01-03 15:47:18 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:48:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:48:40 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:48:43 WARN  JavaRushUtil.getCurrentTask(70) - Ошибка получения ключа задачи.
+2019-01-03 15:48:43 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:49:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:50:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:51:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:52:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:53:00 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:53:03 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:53:03 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:53:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:53:04 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:53:16 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:53:17 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:54:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:55:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:55:33 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:55:35 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:55:35 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:55:38 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:56:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:56:21 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:56:23 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:56:23 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:56:25 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:57:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:57:04 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:57:19 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:57:23 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:57:23 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:57:25 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 15:57:32 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 15:57:35 WARN  JavaRushUtil.getCurrentTask(70) - Ошибка получения ключа задачи.
+2019-01-03 15:57:35 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 15:58:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 15:59:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:00:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:01:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:02:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:02:33 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:02:35 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:02:36 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:02:38 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 16:02:39 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:03 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:03:21 INFO  JavaRushTasksProjectComponent.projectClosing(165) - ---------- Project JavaRushTasks closed ----------
+
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:03:22 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:04:07 INFO  JavaRushTasksProjectComponent.projectOpened(68) - ---------- Project JavaRushTasks opened ----------
+2019-01-03 16:04:07 INFO  JavaRushTasksProjectComponent.projectOpened(69) - ---------- Version 3.24 ----------
+
+2019-01-03 16:04:07 INFO  ApacheHttpClient.createAsyncHttpClient(132) - Выбрано 1 прокси. Тип : DIRECT
+2019-01-03 16:04:07 INFO  ApacheHttpClient.<init>(90) - ApacheHttpClient проинстанциирован успешно.
+2019-01-03 16:04:08 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:08 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:09 INFO  ApacheHttpClient.login(231) - Ожидание ответа сервера.
+2019-01-03 16:04:09 INFO  ApacheHttpClient.login(235) - responseCode = 200
+2019-01-03 16:04:09 INFO  ApacheHttpClient.login(266) - JSESSIONID OK
+2019-01-03 16:04:09 INFO  ApacheHttpClient.refreshUserInfo(294) - responseCode = 200
+2019-01-03 16:04:09 INFO  ApacheHttpClient.refreshUserInfo(300) - Информация о пользователе получена.
+2019-01-03 16:04:09 INFO  ApacheHttpClient.startGA(31) - GAService запущен.
+2019-01-03 16:04:09 INFO  AbstractRestApiClient.startService(70) - EventsService запущен.
+2019-01-03 16:04:18 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:18 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:20 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:20 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:24 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:04:39 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:39 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:43 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:43 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:45 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:04:45 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:04:59 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:04:59 INFO  ApacheHttpClient.getFilteredTasks(327) - responseCode = 200
+2019-01-03 16:05:02 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:05:02 INFO  ApacheHttpClient.getTaskTemplateInfo(344) - responseCode = 200
+2019-01-03 16:05:05 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:05:05 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:05:06 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:05:06 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:05:06 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:05:07 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:05:07 INFO  ApacheHttpClient.getTaskTemplateInfo(344) - responseCode = 200
+2019-01-03 16:05:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:05:10 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:05:10 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:05:11 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-01-03 16:05:11 INFO  ApacheHttpClient.testConnection(201) - result = true
+2019-01-03 16:05:12 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:06:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:07:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:08:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:09:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:10:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:11:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:12:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:13:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:14:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:15:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:16:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:17:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:18:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:19:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:20:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:21:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:22:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:23:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:24:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:25:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:26:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:27:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:28:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:29:09 INFO  ApacheHttpClient.sendEvent(523) - responseCode = 200
+2019-01-03 16:29:39 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:29:39 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
+2019-01-03 16:29:39 INFO  ApacheHttpClient.getWebResourceAsStream(490) - responseCode = 200
+2019-01-03 16:29:40 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2019-01-03 16:29:40 INFO  ApacheHttpClient.getTask(475) - responseCode = 200
