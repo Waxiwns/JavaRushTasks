@@ -19,6 +19,12 @@ public class Rocket extends GameObject {
         rightFire = new RocketFire(Arrays.asList(ShapeMatrix.FIRE_SIDE_1, ShapeMatrix.FIRE_SIDE_2));
     }
 
+    @Override
+    public void draw(Game game) {
+        super.draw(game);
+        downFire.draw(game);
+    }
+
     // движение ракеты
     public void move(boolean isUpPressed, boolean isLeftPressed, boolean isRightPressed) {
         // падаем или не падаем
@@ -45,6 +51,7 @@ public class Rocket extends GameObject {
         }
         x += speedX;
         checkBorders();
+        switchFire(isUpPressed);
     }
 
     // ограничение движения за пределы
@@ -91,5 +98,17 @@ public class Rocket extends GameObject {
 
     public void crash(){
         matrix = ShapeMatrix.ROCKET_CRASH;
+    }
+
+    private void switchFire(boolean isUpPressed){
+        if (isUpPressed){
+            downFire.x = x + (width / 2);
+            downFire.y = y + height;
+            downFire.show();
+        }
+        else {
+            downFire.hide();
+        }
+
     }
 }
