@@ -19,6 +19,10 @@ public class GameObject {
         height = matrix.length;
         width = matrix[0].length;
     }
+    public GameObject(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     // отрисовка обьекта в нужном месте игрового поля (координаты прибавляются к координатам игрового поля, цвет объекта берется из цыфры в ячейке матрицы)
     public void draw(Game game) {

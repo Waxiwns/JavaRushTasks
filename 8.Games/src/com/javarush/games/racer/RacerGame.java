@@ -1,6 +1,8 @@
 package com.javarush.games.racer;
 
 import com.javarush.engine.cell.*;
+import com.javarush.games.racer.road.RoadObject;
+import com.javarush.games.racer.road.RoadObjectType;
 
 import static com.javarush.engine.cell.Key.LEFT;
 import static com.javarush.engine.cell.Key.RIGHT;
