@@ -277,3 +277,23 @@ y = -1 * RoadObject.getHeight(type) — изначально объект рас
 
 
 
+Игра Racer (13/28)
+Класс RoadManager носит такое название не просто так: он управляет всеми препятствиями на дороге.
+Он должен уметь прорисовывать (draw) и передвигать (move) все хранимые объекты.
+
+В классе RacerGame создай поле RoadManager roadManager, чтобы была возможность обращаться к нему.
+Поле roadManager инициализируй в createGame(), а в drawScene() вызови у него draw(Game).
+
+
+Требования:
+1. В классе RoadManager должен существовать публичный метод void draw(Game).
+2. В методе draw(Game) класса RoadManager у каждого объекта из списка items необходимо вызвать метод draw(Game).
+3. В классе RoadManager должен существовать публичный метод void move(int boost).
+4. В методе move(int) класса RoadManager у каждого объекта из списка items необходимо вызвать метод move. В качестве параметра передай сумму boost и скорости текущего объекта.
+5. В классе RacerGame должно существовать приватное поле roadManager типа RoadManager.
+6. Поле roadManager должно быть проинициализировано в методе createGame() новым объектом типа RoadManager до вызова метода drawScene().
+7. В методе drawScene() у объекта roadManager должен быть вызван метод draw(Game). В качестве параметра передай в метод this.
+8. У объекта roadManager метод draw(Game) в методе drawScene() должен быть вызван после метода drawField().
+
+
+
