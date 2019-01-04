@@ -5,6 +5,7 @@ import com.javarush.engine.cell.Game;
 import java.util.ArrayList;
 import java.util.List;
 
+//отвечает за отрисовку и движение дорожной разметки
 public class RoadMarking {
 
     private List<GameObject> roadMarking = new ArrayList<>();

@@ -10,6 +10,7 @@ public class RacerGame extends Game {
     public static final int ROADSIDE_WIDTH = 14;    // x - координата обочины
     private Color roadSideColor = Color.GREEN;    // цвет обочины
     private Color roadColor = Color.DIMGRAY;    // цвет дорожного полотна
+    private RoadMarking roadMarking;        // дорожная разметка
 
     @Override
     public void initialize() {
@@ -27,12 +28,14 @@ public class RacerGame extends Game {
 
     //  старт новой игры
     private void createGame(){
+        roadMarking = new RoadMarking();
         drawScene();
     }
 
     // отрисовка всех игровых объектов
     private void drawScene(){
         drawField();
+        roadMarking.draw(this);
     }
 
     // отрисовка фона игрового поля
