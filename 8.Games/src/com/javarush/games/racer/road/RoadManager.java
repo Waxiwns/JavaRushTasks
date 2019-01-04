@@ -26,4 +26,18 @@ public class RoadManager {
         if (obj != null)
             items.add(obj);
     }
+
+    public void draw(Game game){
+        for (RoadObject object :
+                items) {
+            object.draw(game);
+        }
+    }
+
+    public void move(int boost){
+        for (RoadObject object :
+                items) {
+            object.move(object.speed + boost);
+        }
+    }
 }

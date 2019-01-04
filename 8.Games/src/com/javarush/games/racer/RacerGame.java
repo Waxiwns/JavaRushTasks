@@ -1,8 +1,7 @@
 package com.javarush.games.racer;
 
 import com.javarush.engine.cell.*;
-import com.javarush.games.racer.road.RoadObject;
-import com.javarush.games.racer.road.RoadObjectType;
+import com.javarush.games.racer.road.RoadManager;
 
 import static com.javarush.engine.cell.Key.LEFT;
 import static com.javarush.engine.cell.Key.RIGHT;
@@ -17,6 +16,7 @@ public class RacerGame extends Game {
     private Color roadColor = Color.DIMGRAY;    // цвет дорожного полотна
     private RoadMarking roadMarking;        // дорожная разметка
     private PlayerCar player;        // авто игрока
+    private RoadManager roadManager;
 
     @Override
     public void initialize() {
@@ -64,6 +64,7 @@ public class RacerGame extends Game {
     private void createGame(){
         roadMarking = new RoadMarking();
         player = new PlayerCar();
+        roadManager = new RoadManager();
         drawScene();
         setTurnTimer(40);
     }
@@ -71,6 +72,7 @@ public class RacerGame extends Game {
     // отрисовка всех игровых объектов
     private void drawScene(){
         drawField();
+        roadManager.draw(this);
         roadMarking.draw(this);
         player.draw(this);
     }
