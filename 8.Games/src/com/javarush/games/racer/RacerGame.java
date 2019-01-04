@@ -27,11 +27,18 @@ public class RacerGame extends Game {
         }
     }
 
+    @Override
+    public void onTurn(int step) {
+        moveAll();
+        drawScene();
+    }
+
     //  старт новой игры
     private void createGame(){
         roadMarking = new RoadMarking();
         player = new PlayerCar();
         drawScene();
+        setTurnTimer(40);
     }
 
     // отрисовка всех игровых объектов
@@ -53,5 +60,9 @@ public class RacerGame extends Game {
                     setCellColor(j, i, roadSideColor);   // создаем обочину
             }
         }
+    }
+
+    private void moveAll(){
+        roadMarking.move(player.speed);
     }
 }

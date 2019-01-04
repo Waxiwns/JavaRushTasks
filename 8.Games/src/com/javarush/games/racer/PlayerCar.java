@@ -2,6 +2,8 @@ package com.javarush.games.racer;
 
 // авто игрока
 public class PlayerCar extends GameObject {
+    public int speed = 1;
+
     private static int playerCarHeight = ShapeMatrix.PLAYER.length;
 
     public PlayerCar() {
