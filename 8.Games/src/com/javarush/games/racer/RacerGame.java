@@ -6,7 +6,10 @@ public class RacerGame extends Game {
     public static final int WIDTH = 64;     // x - ширина
     public static final int HEIGHT = 64;    // y - высота
     public static final int CENTER_X = WIDTH / 2;    // x - координата разделительной полосы
-    public static final int ROADSIDE_WIDTH = 4;    // x - координата обочины
+    private Color centerColor = Color.WHITE;    // цвет разделительной полосы
+    public static final int ROADSIDE_WIDTH = 14;    // x - координата обочины
+    private Color roadSideColor = Color.GREEN;    // цвет обочины
+    private Color roadColor = Color.DIMGRAY;    // цвет дорожного полотна
 
     @Override
     public void initialize() {
@@ -27,6 +30,15 @@ public class RacerGame extends Game {
 
     // отрисовка фона игрового поля
     private void drawField(){
-
+        for (int i = 0; i < HEIGHT; i++) {              // y
+            for (int j = 0; j < WIDTH; j++) {           // x
+                if (j == CENTER_X)
+                    setCellColor(j, i, centerColor);   // создаем разделиельную полосу
+                else if (j >= ROADSIDE_WIDTH && j < WIDTH - ROADSIDE_WIDTH)
+                    setCellColor(j, i, roadColor);   // создаем дорожное полотно
+                else
+                    setCellColor(j, i, roadSideColor);   // создаем обочину
+            }
+        }
     }
 }
