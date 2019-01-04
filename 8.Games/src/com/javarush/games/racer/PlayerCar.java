@@ -1,5 +1,7 @@
 package com.javarush.games.racer;
 
+import com.javarush.games.racer.road.RoadManager;
+
 // авто игрока
 public class PlayerCar extends GameObject {
     private static int playerCarHeight = ShapeMatrix.PLAYER.length;
@@ -20,13 +22,12 @@ public class PlayerCar extends GameObject {
     }
 
     public void move() {
-        switch (direction) {
-            case LEFT:
-                x--;
-                break;
-            case RIGHT:
-                x++;
-                break;
-        }
+        // не допускаем выхода за пределы дороги (допускаем выезд только колеса)
+        if (x < RoadManager.LEFT_BORDER) x = RoadManager.LEFT_BORDER;
+        if (x > RoadManager.RIGHT_BORDER - width) x = RoadManager.RIGHT_BORDER - width;
+
+        if (direction == Direction.LEFT) x--;
+        else if (direction == Direction.RIGHT) x++;
+
     }
 }

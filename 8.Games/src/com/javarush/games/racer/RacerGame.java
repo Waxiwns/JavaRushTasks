@@ -2,6 +2,9 @@ package com.javarush.games.racer;
 
 import com.javarush.engine.cell.*;
 
+import static com.javarush.engine.cell.Key.LEFT;
+import static com.javarush.engine.cell.Key.RIGHT;
+
 public class RacerGame extends Game {
     public static final int WIDTH = 64;     // x - ширина
     public static final int HEIGHT = 64;    // y - высота
@@ -45,6 +48,14 @@ public class RacerGame extends Game {
             case SPACE:
 
         }
+    }
+
+    @Override
+    public void onKeyReleased(Key key) {
+        if (key == LEFT && player.getDirection() == Direction.LEFT)
+            player.setDirection(Direction.NONE);
+        else if (key == RIGHT && player.getDirection() == Direction.RIGHT)
+            player.setDirection(Direction.NONE);
     }
 
     //  старт новой игры
