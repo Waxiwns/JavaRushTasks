@@ -11,6 +11,7 @@ public class RacerGame extends Game {
     private Color roadSideColor = Color.GREEN;    // цвет обочины
     private Color roadColor = Color.DIMGRAY;    // цвет дорожного полотна
     private RoadMarking roadMarking;        // дорожная разметка
+    private PlayerCar player;        // авто игрока
 
     @Override
     public void initialize() {
@@ -29,6 +30,7 @@ public class RacerGame extends Game {
     //  старт новой игры
     private void createGame(){
         roadMarking = new RoadMarking();
+        player = new PlayerCar();
         drawScene();
     }
 
@@ -36,6 +38,7 @@ public class RacerGame extends Game {
     private void drawScene(){
         drawField();
         roadMarking.draw(this);
+        player.draw(this);
     }
 
     // отрисовка фона игрового поля
