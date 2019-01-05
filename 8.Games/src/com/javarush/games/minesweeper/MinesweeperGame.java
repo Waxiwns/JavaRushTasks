@@ -11,7 +11,7 @@ public class MinesweeperGame extends Game {
     private static final int COMPLEXITY = 6;
     private int countClosedTiles = WIDTH * HEIGHT;
     private int score = 0;
-        private static final String MINE = "\uD83D\uDCA3";
+    private static final String MINE = "\uD83D\uDCA3";
     private static final String FLAG = "\uD83D\uDEA9";
     private GameObject[][] gameField = new GameObject[HEIGHT][WIDTH];
     private int countMinesOnField = 0;
