@@ -17,6 +17,7 @@ public class RacerGame extends Game {
     private RoadMarking roadMarking;        // дорожная разметка
     private PlayerCar player;        // авто игрока
     private RoadManager roadManager;
+    private boolean isGameStopped;
 
     @Override
     public void initialize() {
@@ -34,8 +35,13 @@ public class RacerGame extends Game {
 
     @Override
     public void onTurn(int step) {
-        moveAll();
-        roadManager.generateNewRoadObjects(this);
+        // если есть пересечения то конец
+        if (roadManager.checkCrush(player))
+            gameOver();
+        else {
+            moveAll();
+            roadManager.generateNewRoadObjects(this);
+        }
         drawScene();
     }
 
@@ -66,6 +72,7 @@ public class RacerGame extends Game {
         roadMarking = new RoadMarking();
         player = new PlayerCar();
         roadManager = new RoadManager();
+        isGameStopped = false;
         drawScene();
         setTurnTimer(40);
     }
@@ -96,5 +103,13 @@ public class RacerGame extends Game {
         roadMarking.move(player.speed);
         player.move();
         roadManager.move(player.speed);
+    }
+
+    private void gameOver(){
+        isGameStopped = true;
+        stopTurnTimer();
+        player.stop();
+        showMessageDialog(Color.DARKOLIVEGREEN, "GAME OVER", Color.BLACK, 75);
+
     }
 }
