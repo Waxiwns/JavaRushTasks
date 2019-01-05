@@ -421,3 +421,25 @@ y = -1 * RoadObject.getHeight(type) — изначально объект рас
 
 
 
+Игра Racer (20/28)
+Сейчас встречных машин слишком много. Чтобы игру можно было пройти, промежутки между препятствиями должны быть достаточно большими.
+С другой стороны, если они будут слишком большие, игра станет очень простой и не такой интересной.
+Оптимальным расстоянием будет 12: оно соответствует габаритам машины игрока с небольшим запасом.
+Это значение будем хранить в константе PLAYER_CAR_DISTANCE.
+
+Реализуй метод boolean isRoadSpaceFree(RoadObject object), который будет проверять, есть ли достаточно свободного места на дороге для размещения новой машины.
+В этом тебе поможет метод isCollisionWithDistance(GameObject, int). Этот метод возвращает false, если расстояние между объектами по горизонтали и вертикали больше переданной дистанции.
+Если на дороге есть свободное место, добавляй новую машину в items.
+
+
+Требования:
+1. В классе RoadManager должно существовать приватное статическое final int поле PLAYER_CAR_DISTANCE, проинициализированное при объявлении значением 12.
+2. В классе RoadManager должен существовать приватный метод boolean isRoadSpaceFree(RoadObject object).
+3. Метод isRoadSpaceFree(RoadObject object) должен вызывать метод isCollisionWithDistance(GameObject, int) у элементов списка items для проверки пересечений объектов. В качестве параметров передавать: object, PLAYER_CAR_DISTANCE.
+4. Метод isRoadSpaceFree(RoadObject) должен возвращать false, если метод isCollisionWithDistance(GameObject, int) с любым из объектов списка items вернул true.
+5. Метод isRoadSpaceFree(RoadObject) должен возвращать true, если метод isCollisionWithDistance(GameObject, int) со всеми объектами из списка items вернул false.
+6. Метод addRoadObject(RoadObjectType, Game) должен вызывать метод isRoadSpaceFree(RoadObject).
+7. Метод addRoadObject(RoadObjectType, Game) должен добавлять созданный методом createRoadObject(RoadObjectType, int, int) объект в список items только в том случае, если метод isRoadSpaceFree(RoadObject) вернул true.
+
+
+

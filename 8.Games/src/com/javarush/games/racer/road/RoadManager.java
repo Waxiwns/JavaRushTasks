@@ -15,9 +15,10 @@ public class RoadManager {
     private List<RoadObject> items = new ArrayList<>();     // список всех объектов
 
     private RoadObject createRoadObject(RoadObjectType type, int x, int y){
-        if (type == RoadObjectType.THORN) return new Thorn(x, y);
-
-        return null;
+        if (type == RoadObjectType.THORN)
+            return new Thorn(x, y);
+        else
+            return new Car(type, x, y);
     }
 
     private void addRoadObject(RoadObjectType type, Game game){
@@ -56,8 +57,16 @@ public class RoadManager {
         }
     }
 
+    private void generateRegularCar(Game game){
+        if (game.getRandomNumber(100) < 30){
+            int carTypeNumber = game.getRandomNumber(4);
+            addRoadObject(RoadObjectType.values()[carTypeNumber], game);
+        }
+    }
+
     public void generateNewRoadObjects(Game game){
         generateThorn((game));
+        generateRegularCar(game);
     }
 
     private void deletePassedItems(){
