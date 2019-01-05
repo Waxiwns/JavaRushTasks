@@ -48,6 +48,9 @@ public class RacerGame extends Game {
     @Override
     public void onKeyPress(Key key) {
         switch (key) {
+            case UP:
+                player.setSpeed(2);
+                break;
             case LEFT:
                 player.setDirection(Direction.LEFT);
                 break;
@@ -55,16 +58,31 @@ public class RacerGame extends Game {
                 player.setDirection(Direction.RIGHT);
                 break;
             case SPACE:
-
+                if (isGameStopped)
+                    createGame();
         }
     }
 
     @Override
     public void onKeyReleased(Key key) {
-        if (key == LEFT && player.getDirection() == Direction.LEFT)
-            player.setDirection(Direction.NONE);
-        else if (key == RIGHT && player.getDirection() == Direction.RIGHT)
-            player.setDirection(Direction.NONE);
+        switch (key) {
+            case UP:
+                player.setSpeed(1);
+                break;
+            case LEFT:
+                if (player.getDirection() == Direction.LEFT)
+                    player.setDirection(Direction.NONE);
+                break;
+            case RIGHT:
+                if (player.getDirection() == Direction.RIGHT)
+                    player.setDirection(Direction.NONE);
+                break;
+        }
+
+//        if (key == LEFT && player.getDirection() == Direction.LEFT)
+//            player.setDirection(Direction.NONE);
+//        else if (key == RIGHT && player.getDirection() == Direction.RIGHT)
+//            player.setDirection(Direction.NONE);
     }
 
     //  старт новой игры

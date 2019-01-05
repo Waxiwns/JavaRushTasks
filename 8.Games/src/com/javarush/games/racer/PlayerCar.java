@@ -8,6 +8,13 @@ public class PlayerCar extends GameObject {
     public int speed = 1;           // скорость движения
     private Direction direction;    // направление движения
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 
     public Direction getDirection() {
         return direction;
