@@ -107,8 +107,8 @@ public class RacerGame extends Game {
     private void drawScene(){
         drawField();
         finishLine.draw(this);
-        roadManager.draw(this);
         roadMarking.draw(this);
+        roadManager.draw(this);
         player.draw(this);
         progressBar.draw(this);
     }
