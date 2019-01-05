@@ -443,3 +443,32 @@ y = -1 * RoadObject.getHeight(type) — изначально объект рас
 
 
 
+Игра Racer (21/28)
+Давай немного усложним игру. Добавим машину с "пьяным" водителем.
+Для ее представления на игровом поле в пакет road был добавлен новый класс MovingCar. Используй его для создания таких машин.
+В отличие от обычных машин, "пьяный" водитель будет двигаться и по горизонтали.
+Чтобы он не пересекался с другими машинами, в методе move() класса MovingCar, происходит проверка таких пересечений.
+Для этого в метод move(int boost), кроме скорости, нужно еще передавать список всех объектов-препятствий.
+
+Еще одна тонкость заключается в том, что MovingCar — наследник класса RoadObject, и переопределяет его метод move, поэтому необходимо добавить второй аргумент и методу move в родительском классе.
+
+При большом количестве "пьяных" водителей на трассе игра станет слишком сложной, поэтому позаботься о том, чтобы на трассе одновременно была только одна такая машина.
+Для проверки этого реализуй метод isMovingCarExists() по аналогии с методом isThornExists().
+
+За генерацию MovingCar будет отвечать отдельный метод void generateMovingCar(Game).
+Его реализация аналогична реализации метода generateThorn(Game).
+
+
+Требования:
+1. В классе RoadObject метод void move() должен принимать два параметра: скорость движения и список RoadObject-ов.
+2. В классе RoadManager в методе void move(int boost) у объектов типа RoadObject должен вызываться метод move() с двумя параметрами: первый — сумма boost и скорости текущего объекта, второй — список items.
+3. Метод createRoadObject(RoadObjectType, int, int) класса RoadManager должен вернуть новый объект типа MovingCar, если type равен RoadObjectType.DRUNK_CAR.
+4. В классе RoadManager должен существовать приватный метод boolean isMovingCarExists().
+5. Метод isMovingCarExists() должен возвращать true, если в списке items есть объект типа MovingCar. Иначе — false.
+6. В классе RoadManager должен существовать приватный метод void generateMovingCar(Game).
+7. В методе generateMovingCar(Game game) у объекта game необходимо вызвать метод getRandomNumber(int) с параметром 100.
+8. В методе generateMovingCar(Game game), если метод getRandomNumber(int) вернул меньше 10 и метод isMovingCarExists() вернул false, необходимо вызвать метод addRoadObject(RoadObjectType, Game) с параметрами: RoadObjectType.DRUNK_CAR, game.
+9. В методе generateNewRoadObjects(Game) класса RoadManager необходимо вызвать метод generateMovingCar(Game).
+
+
+
