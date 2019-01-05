@@ -14,6 +14,11 @@ public class RoadManager {
     private static final int FOURTH_LANE_POSITION = 44;     // объектов-препятствий на проезжей части
     private List<RoadObject> items = new ArrayList<>();     // список всех объектов
     private static final int PLAYER_CAR_DISTANCE = 12;
+    private int passedCarsCount = 0;
+
+    public int getPassedCarsCount() {
+        return passedCarsCount;
+    }
 
     private RoadObject createRoadObject(RoadObjectType type, int x, int y){
         if (type == RoadObjectType.THORN)
@@ -90,8 +95,10 @@ public class RoadManager {
         List<RoadObject> copyItems = new ArrayList<>(items);
         for (RoadObject object :
                 copyItems) {
-            if (object.y >= RacerGame.HEIGHT)
+            if (object.y >= RacerGame.HEIGHT) {
                 items.remove(object);
+                if (object.type != RoadObjectType.THORN) passedCarsCount++;
+            }
         }
     }
 
