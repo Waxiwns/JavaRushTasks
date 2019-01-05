@@ -28,6 +28,9 @@ public class PlayerCar extends GameObject {
 
         if (direction == Direction.LEFT) x--;
         else if (direction == Direction.RIGHT) x++;
+    }
 
+    public void stop(){
+        matrix = ShapeMatrix.PLAYER_DEAD;
     }
 }

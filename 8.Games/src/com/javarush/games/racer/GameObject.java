@@ -48,6 +48,7 @@ public class GameObject {
         return true;
     }
 
+    // проверка на столкновение машины с доугими объектами
     public boolean isCollision(GameObject gameObject) {
         if (!isCollisionPossible(gameObject))
             return false;
