@@ -3,12 +3,10 @@ package com.javarush.games.racer;
 import com.javarush.engine.cell.*;
 import com.javarush.games.racer.road.RoadManager;
 
-import static com.javarush.engine.cell.Key.LEFT;
-import static com.javarush.engine.cell.Key.RIGHT;
-
 public class RacerGame extends Game {
     public static final int WIDTH = 64;     // x - ширина
     public static final int HEIGHT = 64;    // y - высота
+    private static final int RACE_GOAL_CARS_COUNT = 40; // колличество пройденых ашин для победы
     public static final int CENTER_X = WIDTH / 2;    // x - координата разделительной полосы
     private Color centerColor = Color.WHITE;    // цвет разделительной полосы
     public static final int ROADSIDE_WIDTH = 14;    // x - координата обочины
@@ -18,6 +16,7 @@ public class RacerGame extends Game {
     private PlayerCar player;        // авто игрока
     private RoadManager roadManager;
     private boolean isGameStopped;
+    private FinishLine finishLine;
 
     @Override
     public void initialize() {
@@ -90,6 +89,7 @@ public class RacerGame extends Game {
         roadMarking = new RoadMarking();
         player = new PlayerCar();
         roadManager = new RoadManager();
+        finishLine = new FinishLine();
         isGameStopped = false;
         drawScene();
         setTurnTimer(40);
@@ -98,6 +98,7 @@ public class RacerGame extends Game {
     // отрисовка всех игровых объектов
     private void drawScene(){
         drawField();
+        finishLine.draw(this);
         roadManager.draw(this);
         roadMarking.draw(this);
         player.draw(this);
@@ -121,6 +122,7 @@ public class RacerGame extends Game {
         roadMarking.move(player.speed);
         player.move();
         roadManager.move(player.speed);
+        finishLine.move(player.speed);
     }
 
     private void gameOver(){
