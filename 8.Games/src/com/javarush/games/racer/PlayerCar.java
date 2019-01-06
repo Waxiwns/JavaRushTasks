@@ -28,10 +28,11 @@ public class PlayerCar extends GameObject {
         super(RacerGame.WIDTH / 2 + 2, RacerGame.HEIGHT - playerCarHeight - 1, ShapeMatrix.PLAYER);
     }
 
-    public void move() {
+    public void move(int border) {
+        // boarder - допустимое значение заезда на обочину
         // не допускаем выхода за пределы дороги (допускаем выезд только колеса)
-        if (x < RoadManager.LEFT_BORDER) x = RoadManager.LEFT_BORDER;
-        if (x > RoadManager.RIGHT_BORDER - width) x = RoadManager.RIGHT_BORDER - width;
+        if (x < RoadManager.LEFT_BORDER - border) x = RoadManager.LEFT_BORDER - border;
+        if (x > RoadManager.RIGHT_BORDER - width + border) x = RoadManager.RIGHT_BORDER - width + border;
 
         if (direction == Direction.LEFT) x--;
         else if (direction == Direction.RIGHT) x++;

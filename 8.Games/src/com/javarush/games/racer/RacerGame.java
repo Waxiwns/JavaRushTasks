@@ -37,7 +37,7 @@ public class RacerGame extends Game {
     @Override
     public void onTurn(int step) {
         // если есть пересечения то конец
-        if (roadManager.checkCrush(player))
+        if (roadManager.checkCrush(player) || score == 0)
             gameOver();
         else if (finishLine.isCrossed(player)) win();
         else {
@@ -92,7 +92,7 @@ public class RacerGame extends Game {
 
     //  старт новой игры
     private void createGame(){
-        score = 3500;
+        score = 3000;
         roadMarking = new RoadMarking();
         player = new PlayerCar();
         roadManager = new RoadManager();
@@ -106,8 +106,8 @@ public class RacerGame extends Game {
     // отрисовка всех игровых объектов
     private void drawScene(){
         drawField();
-        finishLine.draw(this);
         roadMarking.draw(this);
+        finishLine.draw(this);
         roadManager.draw(this);
         player.draw(this);
         progressBar.draw(this);
@@ -129,9 +129,9 @@ public class RacerGame extends Game {
 
     private void moveAll(){
         roadMarking.move(player.speed);
-        player.move();
-        roadManager.move(player.speed);
         finishLine.move(player.speed);
+        roadManager.move(player.speed);
+        player.move(3);
         progressBar.move(roadManager.getPassedCarsCount());
     }
 
