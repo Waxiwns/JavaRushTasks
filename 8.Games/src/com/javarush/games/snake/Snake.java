@@ -12,6 +12,7 @@ public class Snake {
     private static final String HEAD_SIGN = "\uD83D\uDC7E";
     private static final String BODY_SIGN = "\u26AB";
     private List<GameObject> snakeParts = new ArrayList<>();
+    private Color color = Color.GREENYELLOW;
 
     public Snake(int x, int y) {
         for (int i = 0; i < 3; i++) {
@@ -20,10 +21,7 @@ public class Snake {
     }
 
     public void draw(Game game){
-        Color color;
-
-        if (isAlive) color = Color.GREENYELLOW;
-        else color = Color.RED;
+        if (!isAlive) color = Color.RED;
 
         for (int i = 0; i < snakeParts.size(); i++) {
             if (i == 0) game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, HEAD_SIGN, color, 75);
@@ -53,6 +51,7 @@ public class Snake {
             snakeParts.add(0, head);
             if (snakeParts.get(0).x == apple.x && snakeParts.get(0).y == apple.y) {
                 apple.isAlive = false;
+                color = apple.color;
             }
             else removeTail();
         }
