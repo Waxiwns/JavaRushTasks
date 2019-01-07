@@ -9,12 +9,11 @@ public class Apple extends GameObject {
 
     public void draw(SnakeGame game){
         if (isAlive) {
-            // всегда красное яблочко
-//            game.setCellValueEx(x, y, Color.NONE, APPLE_SIGN, Color.RED, 75);
-
             // разноцветное яблочко
             color = Color.values()[game.getRandomNumber(Color.values().length)];
-            if (color == game.getCellColor()) color = Color.RED;
+            // что бы не было прозрачным
+            if (color == game.getCellColor() || color == Color.NONE || color == Color.TRANSPARENT) color = Color.RED;
+
             game.setCellValueEx(x, y, Color.NONE, APPLE_SIGN, color, 75);
         }
     }

@@ -22,24 +22,29 @@ public class Snake {
     }
 
     public void draw(Game game){
-        if (!isAlive) color = Color.RED;
+        int textSize = 75;
+
+        if (!isAlive){
+            color = Color.RED;
+            textSize /= 1.5;
+        }
 
         for (int i = 0; i < snakeParts.size(); i++) {
             // голова
-            if (i == 0) game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, HEAD_SIGN, color, 75);
+            if (i == 0) game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, HEAD_SIGN, color, textSize);
             // хвост
             else if (i == snakeParts.size() - 1)
-                game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 30);
+                game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, textSize / 2);
             // ячейки тела постоянно меняют размер - эффект анимации
             else if (step % 2 == 0) {
                 if (i % 2 == 0)
-                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 75);
-                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 50);
+                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, textSize);
+                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, textSize - 25);
             }
             else {
                 if (i % 2 == 0)
-                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 55);
-                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 60);
+                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, textSize - 20);
+                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, textSize - 10);
             }
         }
         step++;
@@ -60,17 +65,38 @@ public class Snake {
     public void move(Apple apple){
         GameObject head = createNewHead();
 
-        if (head.x >= SnakeGame.WIDTH | head.y >= SnakeGame.HEIGHT | head.x < 0 | head.y < 0 | checkCollision(head)) {
-            isAlive = false;
-        }
-        else {
+        moveWithoutBoarder(head);
+
+        if (isAlive){
             snakeParts.add(0, head);
+
+            // если съел яблоко
             if (snakeParts.get(0).x == apple.x && snakeParts.get(0).y == apple.y) {
                 apple.isAlive = false;
                 color = apple.color;
             }
             else removeTail();
         }
+    }
+
+    // движение за пределы поля разрешено
+    public void moveWithoutBoarder(GameObject head){
+        if (checkCollision(head))
+            isAlive = false;
+        else if (head.x == SnakeGame.WIDTH)
+            head.x = 0;
+        else if (head.x < 0)
+            head.x = SnakeGame.WIDTH - 1;
+        else if (head.y == SnakeGame.HEIGHT)
+            head.y = 0;
+        else if (head.y < 0)
+            head.y = SnakeGame.HEIGHT - 1;
+    }
+
+    // движение за пределы поля запрещено
+    public void moveWithBoarder(GameObject head){
+        if (head.x >= SnakeGame.WIDTH | head.y >= SnakeGame.HEIGHT | head.x < 0 | head.y < 0 | checkCollision(head))
+            isAlive = false;
     }
 
     public GameObject createNewHead(){
