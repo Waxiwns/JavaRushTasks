@@ -3,7 +3,7 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.*;
 
 public class SnakeGame extends Game {
-    private static final int GOAL = 5;
+    private static final int GOAL = 28;
     public static final int WIDTH = 20;
     public static final int HEIGHT = 15;
     private Color cellColor = Color.GREEN;
@@ -98,7 +98,7 @@ public class SnakeGame extends Game {
     private void gameOver(){
         stopTurnTimer();
         isGameStopped = true;
-        showMessageDialog(Color.DARKOLIVEGREEN, "GAME OVER", Color.BLACK, 75);
+        showMessageDialog(Color.NONE, "GAME OVER", Color.BLACK, 75);
     }
 
     private void win(){
@@ -106,6 +106,6 @@ public class SnakeGame extends Game {
         score += 5;
         setScore(score);
         isGameStopped = true;
-        showMessageDialog(Color.GREENYELLOW, "!!! YOU WIN !!!", Color.HOTPINK, 75);
+        showMessageDialog(Color.NONE, "!!! YOU WIN !!!", Color.HOTPINK, 75);
     }
 }

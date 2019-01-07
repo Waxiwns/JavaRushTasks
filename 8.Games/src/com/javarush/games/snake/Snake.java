@@ -13,6 +13,7 @@ public class Snake {
     private static final String BODY_SIGN = "\u26AB";
     private List<GameObject> snakeParts = new ArrayList<>();
     private Color color = Color.GREENYELLOW;
+    private int step = 0;
 
     public Snake(int x, int y) {
         for (int i = 0; i < 3; i++) {
@@ -24,9 +25,24 @@ public class Snake {
         if (!isAlive) color = Color.RED;
 
         for (int i = 0; i < snakeParts.size(); i++) {
+            // голова
             if (i == 0) game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, HEAD_SIGN, color, 75);
-            else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 75);
+            // хвост
+            else if (i == snakeParts.size() - 1)
+                game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 30);
+            // ячейки тела постоянно меняют размер - эффект анимации
+            else if (step % 2 == 0) {
+                if (i % 2 == 0)
+                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 75);
+                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 50);
+            }
+            else {
+                if (i % 2 == 0)
+                    game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 55);
+                else game.setCellValueEx(snakeParts.get(i).x, snakeParts.get(i).y, Color.NONE, BODY_SIGN, color, 60);
+            }
         }
+        step++;
     }
 
     public void setDirection(Direction direction){
